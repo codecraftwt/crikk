@@ -13,10 +13,15 @@ const Privacy = () => {
         height: "100%",
         boxSizing: "border-box",
         display: "flex",
+        "@media (max-width: 768px)": {
+          boxSizing: "border-box",
+          width: "100%",
+          paddingLeft: "1rem",
+        },
       }}
     >
       <Sidebar active={active} setActive={setActive} />
-      <Box sx={{ width: "75%", height: "100%", boxSizing: "border-box" }}>
+      <Box sx={{ width: "100%", height: "100%", boxSizing: "border-box" }}>
         <Searchbar />
         <PrivacyComponent />
       </Box>

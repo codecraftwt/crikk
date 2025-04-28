@@ -98,9 +98,9 @@ const SearchBar = () => {
               [theme.breakpoints.down("sm")]: {
                 fontSize: "0.9rem",
               },
-              [theme.breakpoints.up("xl")]: {
-                fontSize: "3rem",
-              },
+              // [theme.breakpoints.up("xl")]: {
+              //   fontSize: "3rem",
+              // },
             }}
           >
             <h3>{pageName.charAt(0).toUpperCase() + pageName.slice(1)}</h3>
@@ -120,7 +120,7 @@ const SearchBar = () => {
               />
             }
             sx={{
-              padding: "5px 20px",
+              padding: "0px 20px",
               borderRadius: "8px",
               marginRight: "2rem",
               textTransform: "none",
@@ -162,10 +162,10 @@ const SearchBar = () => {
                 fontSize: "1.8rem",
                 marginRight: "0.5rem",
               },
-              [theme.breakpoints.up("xl")]: {
-                fontSize: "4rem",
-                marginRight: "4rem",
-              },
+              // [theme.breakpoints.up("xl")]: {
+              //   fontSize: "4rem",
+              //   marginRight: "4rem",
+              // },
             }}
           />
 
@@ -181,10 +181,10 @@ const SearchBar = () => {
                 fontSize: "1.8rem",
                 marginRight: "0.5rem",
               },
-              [theme.breakpoints.up("xl")]: {
-                fontSize: "4rem",
-                marginRight: "4rem",
-              },
+              // [theme.breakpoints.up("xl")]: {
+              //   fontSize: "4rem",
+              //   marginRight: "4rem",
+              // },
             }}
           />
           <IconButton

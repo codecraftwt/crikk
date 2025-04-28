@@ -4,7 +4,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import CircleIcon from "@mui/icons-material/Circle";
-import {useTheme} from "@mui/material";
+import { useTheme } from "@mui/material";
 
 const PrivacyComponent = () => {
   const theme = useTheme();
@@ -31,6 +31,7 @@ const PrivacyComponent = () => {
         padding: "1rem",
         paddingLeft: "0",
         paddingTop: "0",
+        
       }}
     >
       <Box
@@ -43,6 +44,9 @@ const PrivacyComponent = () => {
           overflowY: "auto",
           padding: "2rem",
           color: "#2B2B2B",
+          [theme.breakpoints.down("sm")]: {
+            padding:"0.8rem",
+          },
         }}
       >
         <Typography variant="body1" sx={{ lineHeight: "30px" }}>
@@ -75,13 +79,24 @@ const PrivacyComponent = () => {
           {items.map((item, index) => (
             <ListItem key={index} disablePadding>
               <CircleIcon
-                sx={{ color: "black", fontSize: 6, marginLeft: "2rem",
+                sx={{
+                  color: "black",
+                  fontSize: 6,
+                  marginLeft: "2rem",
                   [theme.breakpoints.down("md")]: {
                     marginLeft: "0rem",
                   },
-                 }}
+                }}
               />
-              <ListItemText primary={item} sx={{ marginLeft: "1rem" }} />
+              <ListItemText
+                primary={item}
+                sx={{
+                  marginLeft: "1rem",
+                  [theme.breakpoints.down("sm")]: {
+                    fontSize:"0.8rem"
+                  },
+                }}
+              />
             </ListItem>
           ))}
         </List>
