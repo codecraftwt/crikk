@@ -2,8 +2,10 @@ import React from "react";
 import { Box } from "@mui/material";
 import NoObjectImg from "../../assets/images/NoObject.png";
 import { Typography } from "@mui/material";
+import { useTheme } from "@mui/material";
 
 const DashboardContent = () => {
+  const theme = useTheme();
   return (
     <Box
       sx={{
@@ -23,28 +25,53 @@ const DashboardContent = () => {
           height: "100%",
           overflowY: "auto",
           display: "flex",
-          justifyContent:"center",
-          alignItems:"center"
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        <Box sx={{width: "500px", height:"350px", display:"flex", flexDirection:"column"}}>
+        <Box
+          sx={{
+            width: "90%",
+            height: "80%",
+            maxHeight: "1000px",
+            margin: "auto",
+            display: "flex",
+            flexDirection: "column",
+            [theme.breakpoints.down("md")]: {
+              width: "300px",
+            },
+          }}
+        >
           <img
             src={NoObjectImg}
             alt="No Object image"
-            style={{ height: "200px", margin:"auto" }}
+            style={{ height: "50%", margin: "auto" }}
           />
-          <Typography variant="h5" sx={{ color: "#3E3E3E", textAlign:"center", marginBottom:"1rem" }}>
+          <Typography
+            variant="h5"
+            sx={{
+              color: "#3E3E3E",
+              textAlign: "center",
+              marginBottom: "1rem",
+              [theme.breakpoints.up("lg")]: {
+                fontSize:"3rem"
+              },
+            }}
+          >
             No Project Found
           </Typography>
           <Typography
             variant="body1"
             sx={{
-              textAlign:"center",
+              textAlign: "center",
               fontWeight: "300",
               fontSize: "18px",
               lineHeight: "150%",
               textAlign: "center",
               color: "#9E9E9E",
+              [theme.breakpoints.up("lg")]: {
+                fontSize:"2rem"
+              },
             }}
           >
             Hey! It looks like you haven’t created any projects yet. Create a

@@ -218,6 +218,10 @@
     bottom: 2rem;
 }
 
+.menu-icon{
+  display: none;
+}
+
 @media screen and (min-width: 1800px) and (max-width: 2560px) {
   .sidebar-logo .logo {
     width: 250px;
@@ -353,9 +357,5 @@
   }
   .sidebar-link .icon {
     margin-right: 10px;
-  }
-  .add-project-btn button {
-    padding: 5px 10px;
-    font-size: 0.7rem;
   }
 }

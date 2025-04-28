@@ -87,13 +87,16 @@ const SearchBar = () => {
               display: "flex",
               alignItems: "center",
               width: "100%",
-              fontSize:"1.5rem",
+              fontSize: "1.5rem",
               paddingLeft: "2rem",
               [theme.breakpoints.down("md")]: {
-                fontSize:"1.2rem"
+                fontSize: "1.2rem",
               },
               [theme.breakpoints.down("sm")]: {
-                fontSize:"0.9rem"
+                fontSize: "0.9rem",
+              },
+              [theme.breakpoints.up("xl")]: {
+                fontSize: "3rem",
               },
             }}
           >
@@ -103,7 +106,16 @@ const SearchBar = () => {
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Button
             variant="contained"
-            startIcon={<FlashOnIcon />}
+            startIcon={
+              <FlashOnIcon
+                sx={{
+                  height: "1.5rem",
+                  [theme.breakpoints.up("xl")]: {
+                    height: "3rem",
+                  },
+                }}
+              />
+            }
             sx={{
               padding: "10px 20px",
               borderRadius: "8px",
@@ -124,6 +136,11 @@ const SearchBar = () => {
                 padding: "5px 10px",
                 margin: " 0 0.2rem",
               },
+              [theme.breakpoints.up("xl")]: {
+                fontSize: "2rem",
+                padding: "10px 20px",
+                marginRight: "4rem",
+              },
             }}
           >
             Upgrade
@@ -141,6 +158,10 @@ const SearchBar = () => {
                 fontSize: "1.8rem",
                 marginRight: "0.5rem",
               },
+              [theme.breakpoints.up("xl")]: {
+                fontSize: "4rem",
+                marginRight: "4rem",
+              },
             }}
           />
 
@@ -156,6 +177,10 @@ const SearchBar = () => {
                 fontSize: "1.8rem",
                 marginRight: "0.5rem",
               },
+              [theme.breakpoints.up("xl")]: {
+                fontSize: "4rem",
+                marginRight: "4rem",
+              },
             }}
           />
           <IconButton
@@ -168,9 +193,13 @@ const SearchBar = () => {
                 fontSize: "1rem",
                 marginRight: "1rem",
               },
+              [theme.breakpoints.up("xl")]: {
+                fontSize: "4rem",
+                marginRight: "4rem",
+              },
             }}
           >
-            {active ? <KeyboardArrowDownIcon /> : <KeyboardArrowUpIcon />}
+            {active ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </Box>
       </Box>

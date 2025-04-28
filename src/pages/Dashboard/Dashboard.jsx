@@ -18,7 +18,7 @@ const Dashboard = () => {
       }}
     >
       <Sidebar active={active} setActive={setActive} />
-      <Box sx={{ width: "75%", height: "100%", boxSizing:"border-box"}}>
+      <Box className="contentbox-right" sx={{ width: "75%", height: "100%", boxSizing:"border-box"}}>
         <Searchbar />
         <DashboardContent />
 

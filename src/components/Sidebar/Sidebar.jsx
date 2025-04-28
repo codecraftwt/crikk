@@ -7,11 +7,12 @@ import crown from "../../assets/logos/crown.png";
 import help from "../../assets/logos/help.png";
 import setting from "../../assets/logos/setting.png";
 import rocket from "../../assets/logos/rocket.png";
-import { Button } from "@mui/material";
+import { Button, Menu } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import {IconButton } from "@mui/material";
+import MenuIcon from '@mui/icons-material/Menu';
 
 const Sidebar = ({ active, setActive }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -51,6 +52,7 @@ const Sidebar = ({ active, setActive }) => {
               New Project
             </Button>
           </div>
+          {/* <MenuIcon className="menu-icon" sx={{margin:"1rem 0 0 1rem", cursor:"pointer",}}/> */}
 
           {/* Sidebar Links */}
           <div className="sidebar-list-body">
