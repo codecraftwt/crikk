@@ -1,40 +1,29 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import "./Dashboard.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Searchbar from "../../components/Searchbar/Searchbar.jsx";
+import { Box } from "@mui/material";
+import DashboardContent from "../../components/DashboardContent/DashboardContent.jsx";
 
 const Dashboard = () => {
   const [active, setActive] = useState("dashboard");
 
-  const renderActiveScreen = () => {
-    switch (active) {
-      case "dashboard":
-        return <Dashboard />;
-      case "subscriptions":
-        // return <Subscriptions />;
-        return <Dashboard />;
-
-      case "helpcenter":
-        // return <HelpCenter />;
-        return <Dashboard />;
-
-      case "settings":
-        // return <Settings />;
-        return <Dashboard />;
-
-      default:
-        return <Dashboard />;
-    }
-  };
-
   return (
-    <div className="dashboard-container">
-        <Sidebar active={active} setActive={setActive} />
-      <div className="dashboard-div">
+    <Box
+      sx={{
+        width: "100%",
+        height: "100%",
+        boxSizing: "border-box",
+        display: "flex",
+      }}
+    >
+      <Sidebar active={active} setActive={setActive} />
+      <Box sx={{ width: "75%", height: "100%", boxSizing:"border-box"}}>
         <Searchbar />
-      </div>
-      {/* {renderActiveScreen()} */}
-    </div>
+        <DashboardContent />
+
+      </Box>
+    </Box>
   );
 };
 

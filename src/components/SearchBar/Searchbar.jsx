@@ -23,8 +23,7 @@ const SearchBar = () => {
         width: "100%",
         height: "15%",
         padding: "1rem",
-        paddingLeft: 0,
-        maxHeight: "200px",
+        paddingLeft: "0",
       }}
     >
       <Box
@@ -36,6 +35,7 @@ const SearchBar = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          maxHeight: "200px",
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>

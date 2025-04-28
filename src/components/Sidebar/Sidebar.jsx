@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Import Link for routing
 import "./Sidebar.css";
 import logo from "../../assets/logos/crikklogo.png";
 import home from "../../assets/logos/home.png";
@@ -10,7 +11,8 @@ import { Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { IconButton } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
+// import bgimg from "../../assets/images/Background.png"
 
 const Sidebar = ({ active, setActive }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -24,10 +26,12 @@ const Sidebar = ({ active, setActive }) => {
     <div className="sidebar-container">
       <div className="sidebar-body">
         <div className="sidebar-body-top">
+          {/* Sidebar Logo */}
           <div className="sidebar-logo">
             <img src={logo} alt="Logo" className="logo" />
           </div>
 
+          {/* Add Project Button */}
           <div className="add-project-btn">
             <Button
               variant="contained"
@@ -49,40 +53,38 @@ const Sidebar = ({ active, setActive }) => {
             </Button>
           </div>
 
+          {/* Sidebar Links */}
           <div className="sidebar-list-body">
             <ul className="sidebar-links">
               <li
-                className={`sidebar-link ${
-                  active === "dashboard" ? "active" : ""
-                }`}
-                onClick={() => setActive("dashboard")}
+                className={`sidebar-link ${active === "dashboard" ? "active" : ""}`}
               >
-                <img src={home} alt="Dashboard Icon" className="icon" />
-                <span>Dashboard</span>
-              </li>
-              <li
-                className={`sidebar-link ${
-                  active === "subscriptions" ? "active" : ""
-                }`}
-                onClick={() => setActive("subscriptions")}
-              >
-                <img src={crown} alt="Subscriptions Icon" className="icon" />
-                <span>Subscriptions</span>
-              </li>
-              <li
-                className={`sidebar-link ${
-                  active === "helpcenter" ? "active" : ""
-                }`}
-                onClick={() => setActive("helpcenter")}
-              >
-                <img src={help} alt="Help Center Icon" className="icon" />
-                <span>Help Center</span>
+                <Link to="/dashboard" style={{ display: "flex", alignItems: "center", textDecoration: "none", color: "inherit" }}>
+                  <img src={home} alt="Dashboard Icon" className="icon" />
+                  <span>Dashboard</span>
+                </Link>
               </li>
 
               <li
-                className={`sidebar-link sidebar-link-setting ${
-                  active === "settings" ? "active" : ""
-                }`}
+                className={`sidebar-link ${active === "subscriptions" ? "active" : ""}`}
+              >
+                <Link to="/subscriptions" style={{ display: "flex", alignItems: "center", textDecoration: "none", color: "inherit" }}>
+                  <img src={crown} alt="Subscriptions Icon" className="icon" />
+                  <span>Subscriptions</span>
+                </Link>
+              </li>
+
+              <li
+                className={`sidebar-link ${active === "helpcenter" ? "active" : ""}`}
+              >
+                <Link to="/helpcenter" style={{ display: "flex", alignItems: "center", textDecoration: "none", color: "inherit" }}>
+                  <img src={help} alt="Help Center Icon" className="icon" />
+                  <span>Help Center</span>
+                </Link>
+              </li>
+
+              <li
+                className={`sidebar-link sidebar-link-setting ${active === "settings" ? "active" : ""}`}
                 onClick={toggleDropdown}
               >
                 <div className="setting-icon-div">
@@ -97,52 +99,45 @@ const Sidebar = ({ active, setActive }) => {
                       fontSize: "2rem",
                     }}
                   >
-                    {dropdownOpen ? (
-                      <KeyboardArrowDownIcon />
-                    ) : (
-                      <KeyboardArrowUpIcon />
-                    )}
+                    {dropdownOpen ? <KeyboardArrowDownIcon /> : <KeyboardArrowUpIcon />}
                   </IconButton>
                 </span>
               </li>
             </ul>
           </div>
 
+          {/* Dropdown Menu */}
           {dropdownOpen && (
             <div className="dropdown-body">
               <div className="dropdown open">
                 <ul>
                   <li
-                    className={`dropdown-item ${
-                      active === "profile" ? "active" : ""
-                    }`}
-                    onClick={() => setActive("profile")}
+                    className={`dropdown-item ${active === "profile" ? "active" : ""}`}
                   >
-                    Profile Settings
+                    <Link to="/profile" style={{ textDecoration: "none", color: "inherit" }}>
+                      Profile Settings
+                    </Link>
                   </li>
                   <li
-                    className={`dropdown-item ${
-                      active === "account" ? "active" : ""
-                    }`}
-                    onClick={() => setActive("account")}
+                    className={`dropdown-item ${active === "account" ? "active" : ""}`}
                   >
-                    Account Settings
+                    <Link to="/account" style={{ textDecoration: "none", color: "inherit" }}>
+                      Account Settings
+                    </Link>
                   </li>
                   <li
-                    className={`dropdown-item ${
-                      active === "terms" ? "active" : ""
-                    }`}
-                    onClick={() => setActive("terms")}
+                    className={`dropdown-item ${active === "terms" ? "active" : ""}`}
                   >
-                    Terms and Conditions
+                    <Link to="/terms" style={{ textDecoration: "none", color: "inherit" }}>
+                      Terms and Conditions
+                    </Link>
                   </li>
                   <li
-                    className={`dropdown-item ${
-                      active === "privacy" ? "active" : ""
-                    }`}
-                    onClick={() => setActive("privacy")}
+                    className={`dropdown-item ${active === "privacy" ? "active" : ""}`}
                   >
-                    Privacy Policy
+                    <Link to="/privacy" style={{ textDecoration: "none", color: "inherit" }}>
+                      Privacy Policy
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -150,6 +145,7 @@ const Sidebar = ({ active, setActive }) => {
           )}
         </div>
 
+        {/* Sidebar Bottom Section */}
         <div className="sidebar-body-bottom">
           <div className="refer-left">
             <h2>Share the joy</h2>
@@ -175,6 +171,10 @@ const Sidebar = ({ active, setActive }) => {
             <img src={rocket} alt="rocket icon" />
           </div>
         </div>
+        {/* <Box sx={{width:"100%", display: "flex"}}>
+          <img src={bgimg} alt="bgimg" style={{width:"90%", margin:"auto"}}/>
+          <Box></Box>
+        </Box> */}
       </div>
     </div>
   );
