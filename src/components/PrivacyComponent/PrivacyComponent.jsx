@@ -22,7 +22,7 @@ const PrivacyComponent = () => {
             height: "100%",
             overflowY:"auto"
         }}
-      ></Box>
+      >Privacy Dashboard</Box>
     </Box>  )
 }
 

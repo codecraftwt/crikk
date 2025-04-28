@@ -11,8 +11,7 @@ import { Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { Box, IconButton } from "@mui/material";
-// import bgimg from "../../assets/images/Background.png"
+import {IconButton } from "@mui/material";
 
 const Sidebar = ({ active, setActive }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -57,34 +56,66 @@ const Sidebar = ({ active, setActive }) => {
           <div className="sidebar-list-body">
             <ul className="sidebar-links">
               <li
-                className={`sidebar-link ${active === "dashboard" ? "active" : ""}`}
+                className={`sidebar-link ${
+                  active === "dashboard" ? "active" : ""
+                }`}
               >
-                <Link to="/dashboard" style={{ display: "flex", alignItems: "center", textDecoration: "none", color: "inherit" }}>
+                <Link
+                  to="/dashboard"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    textDecoration: "none",
+                    color: "inherit",
+                  }}
+                >
                   <img src={home} alt="Dashboard Icon" className="icon" />
                   <span>Dashboard</span>
                 </Link>
               </li>
 
               <li
-                className={`sidebar-link ${active === "subscriptions" ? "active" : ""}`}
+                className={`sidebar-link ${
+                  active === "subscriptions" ? "active" : ""
+                }`}
               >
-                <Link to="/subscriptions" style={{ display: "flex", alignItems: "center", textDecoration: "none", color: "inherit" }}>
+                <Link
+                  to="/subscriptions"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    textDecoration: "none",
+                    color: "inherit",
+                  }}
+                >
                   <img src={crown} alt="Subscriptions Icon" className="icon" />
                   <span>Subscriptions</span>
                 </Link>
               </li>
 
               <li
-                className={`sidebar-link ${active === "helpcenter" ? "active" : ""}`}
+                className={`sidebar-link ${
+                  active === "helpcenter" ? "active" : ""
+                }`}
               >
-                <Link to="/helpcenter" style={{ display: "flex", alignItems: "center", textDecoration: "none", color: "inherit" }}>
+                <Link
+                  to="/helpcenter"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    textDecoration: "none",
+                    color: "inherit",
+                  }}
+                >
                   <img src={help} alt="Help Center Icon" className="icon" />
                   <span>Help Center</span>
                 </Link>
               </li>
 
               <li
-                className={`sidebar-link sidebar-link-setting ${active === "settings" ? "active" : ""}`}
+                className={`sidebar-link sidebar-link-setting ${
+                  active === "settings" ? "active" : ""
+                }`}
                 onClick={toggleDropdown}
               >
                 <div className="setting-icon-div">
@@ -99,7 +130,11 @@ const Sidebar = ({ active, setActive }) => {
                       fontSize: "2rem",
                     }}
                   >
-                    {dropdownOpen ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                    {dropdownOpen ? (
+                      <KeyboardArrowUpIcon />
+                    ) : (
+                      <KeyboardArrowDownIcon />
+                    )}
                   </IconButton>
                 </span>
               </li>
@@ -112,30 +147,50 @@ const Sidebar = ({ active, setActive }) => {
               <div className="dropdown open">
                 <ul>
                   <li
-                    className={`dropdown-item ${active === "profile" ? "active" : ""}`}
+                    className={`dropdown-item ${
+                      active === "profile" ? "active" : ""
+                    }`}
                   >
-                    <Link to="/profile" style={{ textDecoration: "none", color: "inherit" }}>
+                    <Link
+                      to="/profile"
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
                       Profile Settings
                     </Link>
                   </li>
                   <li
-                    className={`dropdown-item ${active === "account" ? "active" : ""}`}
+                    className={`dropdown-item ${
+                      active === "account" ? "active" : ""
+                    }`}
                   >
-                    <Link to="/account" style={{ textDecoration: "none", color: "inherit" }}>
+                    <Link
+                      to="/account"
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
                       Account Settings
                     </Link>
                   </li>
                   <li
-                    className={`dropdown-item ${active === "terms" ? "active" : ""}`}
+                    className={`dropdown-item ${
+                      active === "terms" ? "active" : ""
+                    }`}
                   >
-                    <Link to="/terms" style={{ textDecoration: "none", color: "inherit" }}>
+                    <Link
+                      to="/terms"
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
                       Terms and Conditions
                     </Link>
                   </li>
                   <li
-                    className={`dropdown-item ${active === "privacy" ? "active" : ""}`}
+                    className={`dropdown-item ${
+                      active === "privacy" ? "active" : ""
+                    }`}
                   >
-                    <Link to="/privacy" style={{ textDecoration: "none", color: "inherit" }}>
+                    <Link
+                      to="/privacy"
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
                       Privacy Policy
                     </Link>
                   </li>
@@ -171,10 +226,6 @@ const Sidebar = ({ active, setActive }) => {
             <img src={rocket} alt="rocket icon" />
           </div>
         </div>
-        {/* <Box sx={{width:"100%", display: "flex"}}>
-          <img src={bgimg} alt="bgimg" style={{width:"90%", margin:"auto"}}/>
-          <Box></Box>
-        </Box> */}
       </div>
     </div>
   );

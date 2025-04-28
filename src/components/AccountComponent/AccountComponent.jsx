@@ -23,7 +23,7 @@ const AccountComponent = () => {
           height: "100%",
           overflowY:"auto"
       }}
-    ></Box>
+    >Account Dashboard</Box>
   </Box>
   )
 }

@@ -9,14 +9,20 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { IconButton } from "@mui/material";
+import { useLocation } from "react-router-dom";
 
 const SearchBar = () => {
   const [active, setActive] = useState(false);
   const theme = useTheme();
+  const location = useLocation();
 
   const toggleActive = () => {
     setActive((prev) => !prev);
   };
+
+  const pageName = location.pathname.split("/")[1] || "home";
+  const isDashboard = location.pathname === "/dashboard";
+
   return (
     <Box
       sx={{
@@ -39,38 +45,61 @@ const SearchBar = () => {
           maxHeight: "200px",
         }}
       >
-        <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>
-          <SearchIcon
-            sx={{ marginLeft: "1.5rem", color: "gray", fontSize: "1.8rem", 
-              [theme.breakpoints.down("sm")]: {
-                marginLeft:"0.5rem",
+        {isDashboard ? (
+          <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>
+            <SearchIcon
+              sx={{
+                marginLeft: "1.5rem",
+                color: "gray",
+                fontSize: "1.8rem",
+                [theme.breakpoints.down("sm")]: {
+                  marginLeft: "0.5rem",
+                  fontSize: "1.2rem",
+                },
+              }}
+            />
+            <TextField
+              sx={{
+                width: "60%",
+                fontSize: "1rem",
+                "& input": {
+                  color: "rgba(80, 80, 80, 1)",
+                },
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    border: "none",
+                  },
+                  "&:hover fieldset": {
+                    border: "none",
+                  },
+                  "&.Mui-focused fieldset": {
+                    border: "none",
+                  },
+                },
+              }}
+              placeholder="Looking For Something?"
+              variant="outlined"
+            />
+          </Box>
+        ) : (
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              width: "100%",
+              fontSize:"1.5rem",
+              paddingLeft: "2rem",
+              [theme.breakpoints.down("md")]: {
                 fontSize:"1.2rem"
               },
-            }}
-          />
-          <TextField
-            sx={{
-              width: "60%",
-              fontSize: "1rem",
-              "& input": {
-                color: "rgba(80, 80, 80, 1)",
-              },
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": {
-                  border: "none",
-                },
-                "&:hover fieldset": {
-                  border: "none",
-                },
-                "&.Mui-focused fieldset": {
-                  border: "none",
-                },
+              [theme.breakpoints.down("sm")]: {
+                fontSize:"0.9rem"
               },
             }}
-            placeholder="Looking For Something?"
-            variant="outlined"
-          />
-        </Box>
+          >
+            <h3>{pageName.charAt(0).toUpperCase() + pageName.slice(1)}</h3>
+          </Box>
+        )}
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Button
             variant="contained"
@@ -87,9 +116,13 @@ const SearchBar = () => {
                 background:
                   "linear-gradient(263.13deg, #FFBD44 -9.08%, #FD7E14 95.46%)",
               },
+              [theme.breakpoints.down("md")]: {
+                padding: "7px 12px",
+                marginRight: "0.5rem",
+              },
               [theme.breakpoints.down("sm")]: {
                 padding: "5px 10px",
-                marginRight: "0.2rem",
+                margin: " 0 0.2rem",
               },
             }}
           >
@@ -102,11 +135,11 @@ const SearchBar = () => {
               fontSize: "2rem",
               [theme.breakpoints.down("sm")]: {
                 fontSize: "1.2rem",
-                marginRight: "1rem",
+                marginRight: "0.2rem",
               },
-              [theme.breakpoints.up("md")]: {
-                fontSize: "2rem",
-                marginRight: "3rem",
+              [theme.breakpoints.down("md")]: {
+                fontSize: "1.8rem",
+                marginRight: "0.5rem",
               },
             }}
           />
@@ -118,6 +151,10 @@ const SearchBar = () => {
               [theme.breakpoints.down("sm")]: {
                 fontSize: "1.2rem",
                 marginRight: "0rem",
+              },
+              [theme.breakpoints.down("md")]: {
+                fontSize: "1.8rem",
+                marginRight: "0.5rem",
               },
             }}
           />

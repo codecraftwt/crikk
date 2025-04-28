@@ -22,7 +22,7 @@ const ProfileComponent = () => {
           height: "100%",
           overflowY:"auto"
       }}
-    ></Box>
+    >Profile Dashboard</Box>
   </Box>
   )
 }

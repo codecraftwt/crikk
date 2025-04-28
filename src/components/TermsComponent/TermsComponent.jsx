@@ -22,7 +22,7 @@ const TermsComponent = () => {
           height: "100%",
           overflowY:"auto"
       }}
-    ></Box>
+    >Terms and Condition Dashboard</Box>
   </Box>
   )
 }
