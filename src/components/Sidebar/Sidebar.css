@@ -340,6 +340,7 @@
 
   .sidebar-container {
     min-width: 200px;
+    display: none;
   }
 
   .add-project-btn button {
@@ -358,4 +359,5 @@
   .sidebar-link .icon {
     margin-right: 10px;
   }
+  
 }

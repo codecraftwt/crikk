@@ -54,7 +54,7 @@ const SearchBar = () => {
                 fontSize: "1.8rem",
                 [theme.breakpoints.down("sm")]: {
                   marginLeft: "0.5rem",
-                  fontSize: "1.2rem",
+                  fontSize: "1.5rem",
                 },
               }}
             />
@@ -75,6 +75,9 @@ const SearchBar = () => {
                   "&.Mui-focused fieldset": {
                     border: "none",
                   },
+                },
+                [theme.breakpoints.down("sm")]: {
+                  width: "100%",
                 },
               }}
               placeholder="Looking For Something?"
@@ -117,7 +120,7 @@ const SearchBar = () => {
               />
             }
             sx={{
-              padding: "10px 20px",
+              padding: "5px 20px",
               borderRadius: "8px",
               marginRight: "2rem",
               textTransform: "none",
@@ -135,12 +138,13 @@ const SearchBar = () => {
               [theme.breakpoints.down("sm")]: {
                 padding: "5px 10px",
                 margin: " 0 0.2rem",
+                display:"none"
               },
-              [theme.breakpoints.up("xl")]: {
-                fontSize: "2rem",
-                padding: "10px 20px",
-                marginRight: "4rem",
-              },
+              // [theme.breakpoints.up("xl")]: {
+              //   fontSize: "2rem",
+              //   padding: "10px 20px",
+              //   marginRight: "4rem",
+              // },
             }}
           >
             Upgrade
@@ -191,7 +195,7 @@ const SearchBar = () => {
               fontSize: "2rem",
               [theme.breakpoints.down("sm")]: {
                 fontSize: "1rem",
-                marginRight: "1rem",
+                marginRight: "0rem",
               },
               [theme.breakpoints.up("xl")]: {
                 fontSize: "4rem",

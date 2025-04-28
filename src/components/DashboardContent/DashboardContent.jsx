@@ -56,6 +56,9 @@ const DashboardContent = () => {
               [theme.breakpoints.up("lg")]: {
                 fontSize:"3rem"
               },
+              [theme.breakpoints.down("sm")]: {
+                 fontSize:"1.5rem"
+              },
             }}
           >
             No Project Found
@@ -71,6 +74,11 @@ const DashboardContent = () => {
               color: "#9E9E9E",
               [theme.breakpoints.up("lg")]: {
                 fontSize:"2rem"
+              },
+              [theme.breakpoints.down("sm")]: {
+                boxSizing:"border-box",
+                fontSize:'1rem',
+                padding:"1rem"
               },
             }}
           >

@@ -1,28 +1,33 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Searchbar from "../../components/Searchbar/Searchbar.jsx";
 import { Box } from "@mui/material";
 import HelpCenterContent from "../../components/HelpCenterContent/HelpCenterContent.jsx";
 
 const HelpCenter = () => {
-      const [active, setActive] = useState("helpcenter");
+  const [active, setActive] = useState("helpcenter");
 
   return (
     <Box
-    sx={{
-      width: "100%",
-      height: "100%",
-      boxSizing: "border-box",
-      display: "flex",
-    }}
-  >
-      <Sidebar active={active} setActive={setActive} />    <Box sx={{ width: "75%", height: "100%", boxSizing:"border-box"}}>
-      <Searchbar />
-      <HelpCenterContent />
-
+      sx={{
+        width: "100%",
+        height: "100%",
+        boxSizing: "border-box",
+        display: "flex",
+        "@media (max-width: 768px)": {
+          boxSizing: "border-box",
+          width: "100%",
+          paddingLeft: "1rem",
+        },
+      }}
+    >
+      <Sidebar active={active} setActive={setActive} />
+      <Box sx={{ width: "100%", height: "100%", boxSizing: "border-box" }}>
+        <Searchbar />
+        <HelpCenterContent />
+      </Box>
     </Box>
-  </Box>
-  )
-}
+  );
+};
 
-export default HelpCenter
+export default HelpCenter;

@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import {
   Box,
   Typography,
-  Button,
   Collapse,
   Paper,
   IconButton,
+  useTheme,
 } from "@mui/material";
 import MailIcon from "@mui/icons-material/Mail";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -40,6 +40,7 @@ const faqData = [
 ];
 const HelpCenterContent = () => {
   const [open, setOpen] = useState(Array(faqData.length).fill(false));
+  const theme = useTheme();
 
   const handleToggle = (index) => {
     setOpen((prev) => prev.map((item, i) => (i === index ? !item : item)));
@@ -72,9 +73,24 @@ const HelpCenterContent = () => {
             width: "100%",
             boxSizing: "border-box",
             padding: "1rem",
+            [theme.breakpoints.down("sm")]: {
+              flexDirection: "column-reverse",
+              justifyContent: "center",
+              alignItems: "center",
+            },
           }}
         >
-          <Box sx={{ width: "50%" }}>
+          <Box
+            sx={{
+              width: "50%",
+              [theme.breakpoints.down("sm")]: {
+                flexDirection: "column-reverse",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "100%",
+              },
+            }}
+          >
             <Typography
               variant="body1"
               sx={{ padding: "1rem", margin: "1.5rem 0", lineHeight: "30px" }}
@@ -167,6 +183,9 @@ const HelpCenterContent = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              [theme.breakpoints.down("sm")]: {
+                width: "100%",
+              },
             }}
           >
             <img src={asset1} alt="image" style={{ width: "100%" }} />
@@ -182,8 +201,27 @@ const HelpCenterContent = () => {
           <Box sx={{ maxWidth: 800, mx: "auto", my: 4 }}>
             {faqData.map((item, index) => (
               <Paper key={index} sx={{ mb: 2, p: 2 }}>
-                <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <Typography variant="h6" sx={{ flexGrow: 1 }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    [theme.breakpoints.down("sm")]: {
+                      fontSize: "1rem",
+                    },
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      flexGrow: 1,
+                      [theme.breakpoints.down("sm")]: {
+                        fontSize: "0.9rem",
+                      },
+                      [theme.breakpoints.up("lg")]: {
+                        fontSize: "1.5rem",
+                      },
+                    }}
+                  >
                     {item.question}
                   </Typography>
                   <IconButton onClick={() => handleToggle(index)}>
@@ -191,7 +229,9 @@ const HelpCenterContent = () => {
                   </IconButton>
                 </Box>
                 <Collapse in={open[index]}>
-                  <Typography sx={{ mt: 2 }}>{item.answer}</Typography>
+                  <Typography sx={{ mt: 2,       [theme.breakpoints.down("sm")]: {
+                        fontSize: "0.8rem",
+                      }, }}>{item.answer}</Typography>
                 </Collapse>
               </Paper>
             ))}
