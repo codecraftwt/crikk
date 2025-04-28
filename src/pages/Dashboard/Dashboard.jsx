@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Dashboard.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
-import Searchbar from "../../components/SearchBar/Searchbar";
+import Searchbar from "../../components/Searchbar/Searchbar.jsx";
 
 const Dashboard = () => {
   const [active, setActive] = useState("dashboard");

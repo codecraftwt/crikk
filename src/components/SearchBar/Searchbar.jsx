@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Searchbar.css";
+import { Box, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { Button } from "@mui/material";
 import FlashOnIcon from "@mui/icons-material/FlashOn";
@@ -9,27 +10,62 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { IconButton } from "@mui/material";
 
-const Searchbar = () => {
+const SearchBar = () => {
   const [active, setActive] = useState(false);
 
   const toggleActive = () => {
     setActive((prev) => !prev);
   };
   return (
-    <div className="searchbar-container">
-      <div className="searchbar-body">
-        <div className="searchbar-input">
+    <Box
+      sx={{
+        boxSizing: "border-box",
+        width: "100%",
+        height: "15%",
+        padding: "1rem",
+        paddingLeft: 0,
+        maxHeight: "200px",
+      }}
+    >
+      <Box
+        sx={{
+          background: "rgba(255, 255, 255, 1)",
+          borderRadius: "15px",
+          boxShadow: "0px 4px 15px 0px rgba(0, 0, 0, 0.06)",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>
           <SearchIcon
-            sx={{
-              marginLeft: "1.5rem",
-              color: "gray",
-              fontSize: "1.8rem",
-            }}
+            sx={{ marginLeft: "1.5rem", color: "gray", fontSize: "1.8rem" }}
           />
-          <input type="text" placeholder="Looking For Something?" />
-        </div>
-
-        <div className="searchbar-btns">
+          <TextField
+            sx={{
+              width: "60%",
+              fontSize: "1rem",
+              "& input": {
+                color: "rgba(80, 80, 80, 1)",
+              },
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  border: "none",
+                },
+                "&:hover fieldset": {
+                  border: "none",
+                },
+                "&.Mui-focused fieldset": {
+                  border: "none",
+                },
+              },
+            }}
+            placeholder="Looking For Something?"
+            variant="outlined"
+          />
+        </Box>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
           <Button
             variant="contained"
             startIcon={<FlashOnIcon />}
@@ -72,10 +108,10 @@ const Searchbar = () => {
           >
             {active ? <KeyboardArrowDownIcon /> : <KeyboardArrowUpIcon />}
           </IconButton>
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 
-export default Searchbar;
+export default SearchBar;
