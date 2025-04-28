@@ -99,7 +99,7 @@ const Sidebar = ({ active, setActive }) => {
                       fontSize: "2rem",
                     }}
                   >
-                    {dropdownOpen ? <KeyboardArrowDownIcon /> : <KeyboardArrowUpIcon />}
+                    {dropdownOpen ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                   </IconButton>
                 </span>
               </li>
