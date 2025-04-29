@@ -1,33 +1,33 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Searchbar from "../../components/Searchbar/Searchbar.jsx";
 import { Box } from "@mui/material";
 import ProfileComponent from "../../components/ProfileComponent/ProfileComponent.jsx";
 
 const Profile = () => {
-      const [active, setActive] = useState("profile");
+  const [active, setActive] = useState("profile");
 
   return (
     <Box
-    sx={{
-      width: "100%",
-      height: "100%",
-      boxSizing: "border-box",
-      display: "flex",
-      "@media (max-width: 768px)": {
-        boxSizing: "border-box",
+      sx={{
         width: "100%",
-        paddingLeft: "1rem",
-      },
-    }}
-  >
-      <Sidebar active={active} setActive={setActive} />    <Box sx={{ width: "75%", height: "100%", boxSizing:"border-box"}}>
-      <Searchbar />
-      <ProfileComponent />
-
+        height: "100%",
+        boxSizing: "border-box",
+        display: "flex",
+        "@media (max-width: 768px)": {
+          boxSizing: "border-box",
+          width: "100%",
+          paddingLeft: "1rem",
+        },
+      }}
+    >
+      <Sidebar active={active} setActive={setActive} />{" "}
+      <Box sx={{ width: "100%", height: "100%", boxSizing: "border-box" }}>
+        <Searchbar />
+        <ProfileComponent />
+      </Box>
     </Box>
-  </Box>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
