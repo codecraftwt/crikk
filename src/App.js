@@ -9,12 +9,14 @@ import Account from "./pages/Account/Account.jsx";
 import Terms from "./pages/Terms/Terms.jsx";
 import Privacy from "./pages/Privacy/Privacy.jsx";
 import Password from "./pages/Password/Password.jsx";
+import DeleteAccountModal from "./components/DeleteAccountModal/DeleteAccountModal.jsx";
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Navigate to="/dashboard" />} />
+        {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
+        <Route path="/" element={<DeleteAccountModal />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/subscriptions" element={<Subscription />} />
         <Route path="/helpcenter" element={<HelpCenter />} />
