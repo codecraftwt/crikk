@@ -17,12 +17,15 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
+import MenuIcon from "@mui/icons-material/Menu";
+import { useMediaQuery } from "@mui/material";
 
 const SearchBar = () => {
   const [active, setActive] = useState(false);
   const theme = useTheme();
   const location = useLocation();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   const toggleActive = () => {
     setActive((prev) => !prev);
@@ -53,6 +56,15 @@ const SearchBar = () => {
           maxHeight: "200px",
         }}
       >
+        {isSmallScreen && (
+          <IconButton
+            // onClick={onToggleSidebar}
+            sx={{ marginLeft: "0.5rem", marginRight: "1rem" }}
+          >
+            <MenuIcon sx={{ fontSize: "1.8rem", color: "#555" }} />
+          </IconButton>
+        )}
+
         {isDashboard ? (
           <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>
             <SearchIcon
@@ -213,30 +225,37 @@ const SearchBar = () => {
             }}
           >
             <Box
-              sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper",               borderRadius: "15px",
+              sx={{
+                width: "100%",
+                maxWidth: 360,
+                bgcolor: "background.paper",
+                borderRadius: "15px",
               }}
             >
               <nav aria-label="main mailbox folders">
                 <List>
-                  <Link to="/profile"                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    textDecoration: "none",
-                    color: "inherit",
-                  }}>
-                  <ListItem disablePadding>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <VisibilityOutlinedIcon />
-                      </ListItemIcon >
-                      <ListItemText primary="View Profile"/>
-                    </ListItemButton>
-                  </ListItem>
+                  <Link
+                    to="/profile"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      textDecoration: "none",
+                      color: "inherit",
+                    }}
+                  >
+                    <ListItem disablePadding>
+                      <ListItemButton>
+                        <ListItemIcon>
+                          <VisibilityOutlinedIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="View Profile" />
+                      </ListItemButton>
+                    </ListItem>
                   </Link>
                   <ListItem disablePadding>
                     <ListItemButton>
                       <ListItemIcon>
-                        <ErrorOutlineIcon sx={{color:"red"}}/>
+                        <ErrorOutlineIcon sx={{ color: "red" }} />
                       </ListItemIcon>
                       <ListItemText primary="Logout" />
                     </ListItemButton>
@@ -245,7 +264,8 @@ const SearchBar = () => {
               </nav>
             </Box>
           </Box>
-        ) : (""
+        ) : (
+          ""
         )}
       </Box>
     </Box>

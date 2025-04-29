@@ -6,13 +6,14 @@ import home from "../../assets/logos/home.png";
 import crown from "../../assets/logos/crown.png";
 import help from "../../assets/logos/help.png";
 import setting from "../../assets/logos/setting.png";
-import rocket from "../../assets/logos/rocket.png";
-import { Button, Menu } from "@mui/material";
+import { Button, Box } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import {IconButton } from "@mui/material";
-import MenuIcon from '@mui/icons-material/Menu';
+import { IconButton } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import SidebarBottom from "../SidebarBottom/SidebarBottom";
+import DropdownSetting from "../DropDownSetting/DropDownSetting";
 
 const Sidebar = ({ active, setActive }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -23,7 +24,14 @@ const Sidebar = ({ active, setActive }) => {
   };
 
   return (
-    <div className="sidebar-container">
+    <Box
+      sx={{
+        boxSizing: "border-box",
+        width: "25%",
+        height: "100vh",
+        padding: "1rem",
+      }}
+    >
       <div className="sidebar-body">
         <div className="sidebar-body-top">
           {/* Sidebar Logo */}
@@ -32,11 +40,14 @@ const Sidebar = ({ active, setActive }) => {
           </div>
 
           {/* Add Project Button */}
-          <div className="add-project-btn">
+          <Box sx={{display:"flex", justifyContent:"center"}}>
             <Button
               variant="contained"
               startIcon={<AddIcon />}
               sx={{
+                padding:"10px 14px",
+                fontSize:"1.1rem",
+                textAlign:"center",
                 background:
                   "linear-gradient(263.13deg, #8a5cff -9.08%, #596cff 95.46%)",
                 boxShadow: "0px 4px 8px 0px rgba(0, 0, 0, 0.04)",
@@ -51,8 +62,7 @@ const Sidebar = ({ active, setActive }) => {
             >
               New Project
             </Button>
-          </div>
-          {/* <MenuIcon className="menu-icon" sx={{margin:"1rem 0 0 1rem", cursor:"pointer",}}/> */}
+            </Box>
 
           {/* Sidebar Links */}
           <div className="sidebar-list-body">
@@ -144,7 +154,7 @@ const Sidebar = ({ active, setActive }) => {
           </div>
 
           {/* Dropdown Menu */}
-          {dropdownOpen && (
+          {/* {dropdownOpen && (
             <div className="dropdown-body">
               <div className="dropdown open">
                 <ul>
@@ -199,37 +209,18 @@ const Sidebar = ({ active, setActive }) => {
                 </ul>
               </div>
             </div>
-          )}
-        </div>
+          )} */}
 
-        {/* Sidebar Bottom Section */}
-        <div className="sidebar-body-bottom">
-          <div className="refer-left">
-            <h2>Share the joy</h2>
-            <p>Refer your friends!</p>
-            <Button
-              variant="contained"
-              sx={{
-                color: "rgba(255, 193, 48, 1)",
-                backgroundColor: "rgba(255, 255, 255, 1)",
-                boxShadow: "0px 4px 8px 0px rgba(0, 0, 0, 0.04)",
-                borderRadius: "8px",
-                fontWeight: "bold",
-                textTransform: "none",
-                "&:hover": {
-                  backgroundColor: "rgba(255, 255, 255, 0.8)",
-                },
-              }}
-            >
-              Refer Now!
-            </Button>
-          </div>
-          <div className="refer-right">
-            <img src={rocket} alt="rocket icon" />
-          </div>
+          <DropdownSetting
+            dropdownOpen={dropdownOpen}
+            active={active}
+            setActive={setActive}
+          />
         </div>
+        {/* Sidebar Bottom Section */}
+        <SidebarBottom />
       </div>
-    </div>
+    </Box>
   );
 };
 
