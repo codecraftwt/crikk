@@ -54,7 +54,7 @@ const DashboardContent = () => {
               textAlign: "center",
               marginBottom: "1rem",
               [theme.breakpoints.up("lg")]: {
-                fontSize:"3rem"
+                fontSize:"1.8rem"
               },
               [theme.breakpoints.down("sm")]: {
                  fontSize:"1.5rem"
@@ -73,7 +73,7 @@ const DashboardContent = () => {
               textAlign: "center",
               color: "#9E9E9E",
               [theme.breakpoints.up("lg")]: {
-                fontSize:"2rem"
+                fontSize:"1.2rem"
               },
               [theme.breakpoints.down("sm")]: {
                 boxSizing:"border-box",

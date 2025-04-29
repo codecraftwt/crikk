@@ -10,6 +10,14 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { IconButton } from "@mui/material";
 import { useLocation } from "react-router-dom";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
+import {Link} from "react-router-dom"
 
 const SearchBar = () => {
   const [active, setActive] = useState(false);
@@ -98,9 +106,6 @@ const SearchBar = () => {
               [theme.breakpoints.down("sm")]: {
                 fontSize: "0.9rem",
               },
-              // [theme.breakpoints.up("xl")]: {
-              //   fontSize: "3rem",
-              // },
             }}
           >
             <h3>{pageName.charAt(0).toUpperCase() + pageName.slice(1)}</h3>
@@ -138,13 +143,8 @@ const SearchBar = () => {
               [theme.breakpoints.down("sm")]: {
                 padding: "5px 10px",
                 margin: " 0 0.2rem",
-                display:"none"
+                display: "none",
               },
-              // [theme.breakpoints.up("xl")]: {
-              //   fontSize: "2rem",
-              //   padding: "10px 20px",
-              //   marginRight: "4rem",
-              // },
             }}
           >
             Upgrade
@@ -162,10 +162,6 @@ const SearchBar = () => {
                 fontSize: "1.8rem",
                 marginRight: "0.5rem",
               },
-              // [theme.breakpoints.up("xl")]: {
-              //   fontSize: "4rem",
-              //   marginRight: "4rem",
-              // },
             }}
           />
 
@@ -181,10 +177,6 @@ const SearchBar = () => {
                 fontSize: "1.8rem",
                 marginRight: "0.5rem",
               },
-              // [theme.breakpoints.up("xl")]: {
-              //   fontSize: "4rem",
-              //   marginRight: "4rem",
-              // },
             }}
           />
           <IconButton
@@ -206,6 +198,55 @@ const SearchBar = () => {
             {active ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </Box>
+
+        {active ? (
+          <Box
+            sx={{
+              width: "11rem",
+              height: "7rem",
+              position: "absolute",
+              top: "6rem",
+              right: "2rem",
+              borderRadius: "15px",
+              boxShadow: "0px 4px 20px 0px #0000001F",
+              background: "#fff",
+            }}
+          >
+            <Box
+              sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper",               borderRadius: "15px",
+              }}
+            >
+              <nav aria-label="main mailbox folders">
+                <List>
+                  <Link to="/profile"                   style={{
+                    display: "flex",
+                    alignItems: "center",
+                    textDecoration: "none",
+                    color: "inherit",
+                  }}>
+                  <ListItem disablePadding>
+                    <ListItemButton>
+                      <ListItemIcon>
+                        <VisibilityOutlinedIcon />
+                      </ListItemIcon >
+                      <ListItemText primary="View Profile"/>
+                    </ListItemButton>
+                  </ListItem>
+                  </Link>
+                  <ListItem disablePadding>
+                    <ListItemButton>
+                      <ListItemIcon>
+                        <ErrorOutlineIcon sx={{color:"red"}}/>
+                      </ListItemIcon>
+                      <ListItemText primary="Logout" />
+                    </ListItemButton>
+                  </ListItem>
+                </List>
+              </nav>
+            </Box>
+          </Box>
+        ) : (""
+        )}
       </Box>
     </Box>
   );
