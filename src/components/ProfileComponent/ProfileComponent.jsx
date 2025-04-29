@@ -5,19 +5,24 @@ import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 import PersonIcon from "@mui/icons-material/Person";
 import EmailIcon from "@mui/icons-material/Email";
 import StarIcon from "@mui/icons-material/Star";
+import EditUserModal from "../EditUserModal/EditUserModal";
 const ProfileComponent = () => {
   const theme = useTheme();
   const [modalOpen, setModalOpen] = useState(false);
-
-  const toggleModal = () => {
-    setModalOpen(true);
-  };
-  const user = {
+  const [user, setUser] = useState({
     firstName: "Lorem",
     lastName: "Ipsum",
     email: "loremipsum@gmail.com",
     accountType: " Crikk Pro",
     monthlyCharacterLimit: "Unlimited",
+  });
+
+  const toggleModal = () => {
+    setModalOpen(true);
+  };
+
+  const handleSave = (updatedUser) => {
+    setUser(updatedUser);
   };
 
   return (
@@ -408,6 +413,12 @@ const ProfileComponent = () => {
           </Box>
         </Box>
       </Box>
+      <EditUserModal
+        open={modalOpen}
+        handleClose={() => setModalOpen(false)}
+        user={user}
+        onSave={handleSave}
+      />
     </>
   );
 };
