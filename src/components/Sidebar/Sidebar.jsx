@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link for routing
+import { Link } from "react-router-dom";
 import "./Sidebar.css";
 import logo from "../../assets/logos/crikklogo.png";
 import home from "../../assets/logos/home.png";
@@ -10,10 +10,17 @@ import { Button, Box } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SidebarBottom from "../SidebarBottom/SidebarBottom";
 import DropdownSetting from "../DropDownSetting/DropDownSetting";
+import {
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  IconButton,
+} from "@mui/material";
 
 const Sidebar = ({ active, setActive }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -22,6 +29,27 @@ const Sidebar = ({ active, setActive }) => {
     setActive("settings");
     setDropdownOpen(!dropdownOpen);
   };
+
+  const navItems = [
+    {
+      key: "dashboard",
+      label: "Dashboard",
+      to: "/dashboard",
+      icon: home,
+    },
+    {
+      key: "subscriptions",
+      label: "Subscriptions",
+      to: "/subscriptions",
+      icon: crown,
+    },
+    {
+      key: "helpcenter",
+      label: "Help Center",
+      to: "/helpcenter",
+      icon: help,
+    },
+  ];
 
   return (
     <Box
@@ -40,14 +68,14 @@ const Sidebar = ({ active, setActive }) => {
           </div>
 
           {/* Add Project Button */}
-          <Box sx={{display:"flex", justifyContent:"center"}}>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Button
               variant="contained"
               startIcon={<AddIcon />}
               sx={{
-                padding:"10px 14px",
-                fontSize:"1.1rem",
-                textAlign:"center",
+                padding: "10px 14px",
+                fontSize: "1.1rem",
+                textAlign: "center",
                 background:
                   "linear-gradient(263.13deg, #8a5cff -9.08%, #596cff 95.46%)",
                 boxShadow: "0px 4px 8px 0px rgba(0, 0, 0, 0.04)",
@@ -62,162 +90,78 @@ const Sidebar = ({ active, setActive }) => {
             >
               New Project
             </Button>
-            </Box>
-
-          {/* Sidebar Links */}
-          <div className="sidebar-list-body">
-            <ul className="sidebar-links">
-              <li
-                className={`sidebar-link ${
-                  active === "dashboard" ? "active" : ""
-                }`}
-              >
-                <Link
-                  to="/dashboard"
-                  style={{
+          </Box>
+          <List sx={{ width: "100%" }}>
+            {navItems.map((item) => (
+              <ListItem disablePadding key={item.key}>
+                <ListItemButton
+                  component={Link}
+                  to={item.to}
+                  selected={active === item.key}
+                  onClick={() => setActive(item.key)}
+                  sx={{
                     display: "flex",
                     alignItems: "center",
-                    textDecoration: "none",
-                    color: "inherit",
+                    "&.Mui-selected": {
+                      backgroundColor: "#f0f0f0",
+                    },
                   }}
                 >
-                  <img src={home} alt="Dashboard Icon" className="icon" />
-                  <span>Dashboard</span>
-                </Link>
-              </li>
+                  <ListItemIcon>
+                    <img
+                      src={item.icon}
+                      alt={`${item.label} Icon`}
+                      style={{ width: 24 }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary={item.label} />
+                </ListItemButton>
+              </ListItem>
+            ))}
 
-              <li
-                className={`sidebar-link ${
-                  active === "subscriptions" ? "active" : ""
-                }`}
-              >
-                <Link
-                  to="/subscriptions"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    textDecoration: "none",
-                    color: "inherit",
-                  }}
-                >
-                  <img src={crown} alt="Subscriptions Icon" className="icon" />
-                  <span>Subscriptions</span>
-                </Link>
-              </li>
-
-              <li
-                className={`sidebar-link ${
-                  active === "helpcenter" ? "active" : ""
-                }`}
-              >
-                <Link
-                  to="/helpcenter"
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    textDecoration: "none",
-                    color: "inherit",
-                  }}
-                >
-                  <img src={help} alt="Help Center Icon" className="icon" />
-                  <span>Help Center</span>
-                </Link>
-              </li>
-
-              <li
-                className={`sidebar-link sidebar-link-setting ${
-                  active === "settings" ? "active" : ""
-                }`}
+            {/* Settings with dropdown toggle */}
+            <ListItem
+              disablePadding
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <ListItemButton
+                selected={active === "settings"}
                 onClick={toggleDropdown}
+                sx={{
+                  "&.Mui-selected": {
+                    backgroundColor: "#f0f0f0",
+                  },
+                }}
               >
-                <div className="setting-icon-div">
-                  <img src={setting} alt="Settings Icon" className="icon" />
-                  <span>Settings</span>
-                </div>
-                <span className="dropdown-toggle-icon">
-                  <IconButton
-                    onClick={toggleDropdown}
-                    sx={{
-                      cursor: "pointer",
-                      fontSize: "2rem",
-                    }}
-                  >
-                    {dropdownOpen ? (
-                      <KeyboardArrowUpIcon />
-                    ) : (
-                      <KeyboardArrowDownIcon />
-                    )}
-                  </IconButton>
-                </span>
-              </li>
-            </ul>
-          </div>
+                <ListItemIcon>
+                  <img
+                    src={setting}
+                    alt="Settings Icon"
+                    style={{ width: 24 }}
+                  />
+                </ListItemIcon>
+                <ListItemText primary="Settings" />
+              </ListItemButton>
+              <IconButton onClick={toggleDropdown}>
+                {dropdownOpen ? (
+                  <KeyboardArrowUpIcon />
+                ) : (
+                  <KeyboardArrowDownIcon />
+                )}
+              </IconButton>
+            </ListItem>
 
-          {/* Dropdown Menu */}
-          {/* {dropdownOpen && (
-            <div className="dropdown-body">
-              <div className="dropdown open">
-                <ul>
-                  <li
-                    className={`dropdown-item ${
-                      active === "profile" ? "active" : ""
-                    }`}
-                  >
-                    <Link
-                      to="/profile"
-                      style={{ textDecoration: "none", color: "inherit" }}
-                    >
-                      Profile Settings
-                    </Link>
-                  </li>
-                  <li
-                    className={`dropdown-item ${
-                      active === "account" ? "active" : ""
-                    }`}
-                  >
-                    <Link
-                      to="/account"
-                      style={{ textDecoration: "none", color: "inherit" }}
-                    >
-                      Account Settings
-                    </Link>
-                  </li>
-                  <li
-                    className={`dropdown-item ${
-                      active === "terms" ? "active" : ""
-                    }`}
-                  >
-                    <Link
-                      to="/terms"
-                      style={{ textDecoration: "none", color: "inherit" }}
-                    >
-                      Terms and Conditions
-                    </Link>
-                  </li>
-                  <li
-                    className={`dropdown-item ${
-                      active === "privacy" ? "active" : ""
-                    }`}
-                  >
-                    <Link
-                      to="/privacy"
-                      style={{ textDecoration: "none", color: "inherit" }}
-                    >
-                      Privacy Policy
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          )} */}
-
+          </List>
           <DropdownSetting
             dropdownOpen={dropdownOpen}
             active={active}
             setActive={setActive}
           />
         </div>
-        {/* Sidebar Bottom Section */}
         <SidebarBottom />
       </div>
     </Box>

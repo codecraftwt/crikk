@@ -21,7 +21,7 @@ const Subscription = () => {
       },
     }}
   >
-      <Sidebar active={active} setActive={setActive} />    <Box sx={{ width: "75%", height: "100%", boxSizing:"border-box"}}>
+      <Sidebar active={active} setActive={setActive} />    <Box sx={{ width: "100%", height: "100%", boxSizing:"border-box"}}>
       <Searchbar />
       <SubscriptionsComponent />
     </Box>
