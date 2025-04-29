@@ -8,6 +8,7 @@ import Profile from "./pages/Profile/Profile.jsx";
 import Account from "./pages/Account/Account.jsx";
 import Terms from "./pages/Terms/Terms.jsx";
 import Privacy from "./pages/Privacy/Privacy.jsx";
+import Password from "./pages/Password/Password.jsx";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/password" element={<Password />} />
       </Routes>
     </div>
   );

@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import googlelogo from "../../assets/logos/google.webp";
 import CallMadeIcon from "@mui/icons-material/CallMade";
+import { Link } from "react-router-dom";
 const AccountComponent = () => {
   const theme = useTheme();
   return (
@@ -57,9 +58,11 @@ const AccountComponent = () => {
         >
           Google
         </Button>
+        <Link to="/password" style={{textDecoration:"none"}}>
         <Typography variant="h5" sx={{padding:"4rem 0", fontSize:"1.1rem", color:"#0084CB", cursor:"pointer"}}>
           Change Password <CallMadeIcon />
         </Typography>
+        </Link>
         <Typography variant="h5" sx={{fontSize:'1.1rem', color:"#FF6F6F", cursor:"pointer"}}>Delete Account</Typography>
       </Box>
     </Box>
