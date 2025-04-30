@@ -1,28 +1,18 @@
 import React, { useState } from "react";
-import "./Searchbar.css";
-import { Box, TextField, useTheme } from "@mui/material";
+import { Box, Button, TextField, useTheme, IconButton, useMediaQuery, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Collapse } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { Button } from "@mui/material";
 import FlashOnIcon from "@mui/icons-material/FlashOn";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { IconButton } from "@mui/material";
-import { useLocation } from "react-router-dom";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
+import MenuIcon from "@mui/icons-material/Menu";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
-import { Link } from "react-router-dom";
-import MenuIcon from "@mui/icons-material/Menu";
-import { useMediaQuery } from "@mui/material";
-import Drawer from "@mui/material/Drawer";
-import Collapse from "@mui/material/Collapse";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
+import { Link, useLocation } from "react-router-dom";
+import "./Searchbar.css";
+//logo images
 import home from "../../assets/logos/home.png";
 import crown from "../../assets/logos/crown.png";
 import help from "../../assets/logos/help.png";
@@ -67,7 +57,6 @@ const SearchBar = () => {
     if (text === "Settings") {
       setSettingsOpen(!settingsOpen);
     } else {
-      // Handle navigation or drawer close here if needed
     }
   };
 
