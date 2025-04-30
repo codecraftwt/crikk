@@ -22,7 +22,7 @@ const SubscriptionsComponent = () => {
           height: "100%",
           overflowY:"auto"
       }}
-    >Subscription Dashboard</Box>
+    ></Box>
   </Box>
   )
 }

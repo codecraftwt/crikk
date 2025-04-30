@@ -6,20 +6,12 @@ import home from "../../assets/logos/home.png";
 import crown from "../../assets/logos/crown.png";
 import help from "../../assets/logos/help.png";
 import setting from "../../assets/logos/setting.png";
-import { Button, Box } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import SidebarBottom from "../SidebarBottom/SidebarBottom";
 import DropdownSetting from "../DropDownSetting/DropDownSetting";
-import {
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  IconButton,
-} from "@mui/material";
+import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, IconButton, Button, Box } from "@mui/material";
 
 const Sidebar = ({ active, setActive }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -57,7 +49,7 @@ const Sidebar = ({ active, setActive }) => {
         width: "25%",
         height: "100vh",
         padding: "1rem",
-        display:{xs:"none", sm:"none", md:"block"}
+        display: { xs: "none", sm: "none", md: "block" },
       }}
     >
       <Box
@@ -119,6 +111,8 @@ const Sidebar = ({ active, setActive }) => {
                     "&.Mui-selected": {
                       backgroundColor: "#f0f0f0",
                     },
+                    borderLeft: active === item.key ? "4px solid #FD7E14" : "none",
+                    paddingLeft: "2rem",
                   }}
                 >
                   <ListItemIcon>
@@ -149,6 +143,8 @@ const Sidebar = ({ active, setActive }) => {
                   "&.Mui-selected": {
                     backgroundColor: "#f0f0f0",
                   },
+                  borderLeft: active === "settings" ? "4px solid #FD7E14" : "none", // Add left border on active settings
+                  paddingLeft: "2rem",
                 }}
               >
                 <ListItemIcon>

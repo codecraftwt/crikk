@@ -20,7 +20,7 @@ import setting from "../../assets/logos/setting.png";
 import logo from "../../assets/logos/crikklogo.png";
 import SidebarBottom from "../SidebarBottom/SidebarBottom";
 
-const SearchBar = () => {
+const SearchBar = ({ onUpgradeClick }) => {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
   const theme = useTheme();
@@ -217,6 +217,8 @@ const SearchBar = () => {
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Button
               variant="contained"
+              onClick={onUpgradeClick}
+
               startIcon={
                 <FlashOnIcon
                   sx={{
