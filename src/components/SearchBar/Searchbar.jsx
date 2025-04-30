@@ -375,7 +375,6 @@ const SearchBar = ({ onUpgradeClick }) => {
       <Drawer anchor="left" open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>
-      {/* <NewProjectModal open={modalOpen} close={() => setModalOpen(false)} /> */}
     </>
   );
 };
