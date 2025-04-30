@@ -9,17 +9,13 @@ const Account = () => {
 
   return (
     <Box
-    sx={{
-      width: "100%",
-      height: "100%",
-      boxSizing: "border-box",
-      display: "flex",
-      "@media (max-width: 768px)": {
-        boxSizing: "border-box",
+      sx={{
         width: "100%",
-        paddingLeft: "1rem",
-      },
-    }}
+        height: "100%",
+        boxSizing: "border-box",
+        display: "flex",
+        paddingLeft: { xs: "1rem", sm: "1rem", md: "0" },
+      }}
     >
       <Sidebar active={active} setActive={setActive} />{" "}
       <Box sx={{ width: "100%", height: "100%", boxSizing: "border-box" }}>

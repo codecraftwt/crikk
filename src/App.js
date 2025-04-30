@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
+        <Route path="/" element={<Navigate to="/dashboard" />} />
         <Route path="/" element={<DeleteAccountModal />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/subscriptions" element={<Subscription />} />

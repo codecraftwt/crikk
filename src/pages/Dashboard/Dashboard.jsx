@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./Dashboard.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Searchbar from "../../components/Searchbar/Searchbar.jsx";
@@ -18,16 +18,17 @@ const Dashboard = () => {
       }}
     >
       <Sidebar active={active} setActive={setActive} />
-      <Box className="contentbox-right" sx={{ width: "100%", height: "100%", boxSizing:"border-box", 
-                '@media (max-width: 768px)': {
-                  boxSizing:"border-box",
-                  width:"100%",
-                  paddingLeft:"1rem"
-            }
-      }}>
+      <Box
+        className="contentbox-right"
+        sx={{
+          width: "100%",
+          height: "100%",
+          boxSizing: "border-box",
+          paddingLeft: { xs: "1rem", sm: "1rem", md: "0" },
+        }}
+      >
         <Searchbar />
         <DashboardContent />
-
       </Box>
     </Box>
   );

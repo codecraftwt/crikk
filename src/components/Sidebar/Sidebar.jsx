@@ -10,7 +10,6 @@ import { Button, Box } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import MenuIcon from "@mui/icons-material/Menu";
 import SidebarBottom from "../SidebarBottom/SidebarBottom";
 import DropdownSetting from "../DropDownSetting/DropDownSetting";
 import {
@@ -58,16 +57,31 @@ const Sidebar = ({ active, setActive }) => {
         width: "25%",
         height: "100vh",
         padding: "1rem",
+        display:{xs:"none", sm:"none", md:"block"}
       }}
     >
-      <div className="sidebar-body">
-        <div className="sidebar-body-top">
-          {/* Sidebar Logo */}
-          <div className="sidebar-logo">
-            <img src={logo} alt="Logo" className="logo" />
-          </div>
-
-          {/* Add Project Button */}
+      <Box
+        sx={{
+          background: "#fff",
+          width: "100%",
+          height: "100%",
+          boxShadow: "1px 2px 12px 1px rgba(0, 0, 0, 0.04)",
+          borderRadius: "15px",
+          overflowY: "auto",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
+        <Box>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <img
+              src={logo}
+              alt="Logo"
+              className="logo"
+              style={{ width: "150px", height: "auto", padding: "3rem 0" }}
+            />
+          </Box>
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Button
               variant="contained"
@@ -84,7 +98,7 @@ const Sidebar = ({ active, setActive }) => {
                 color: "white",
                 "&:hover": {
                   background:
-                    "linear-gradient(263.13deg, #8a5cff -9.08%, #596cff 85%)",
+                    "linear-gradient(263.13deg,rgb(63, 89, 255) -9.08%,rgb(150, 93, 199) 85%)",
                 },
               }}
             >
@@ -154,16 +168,15 @@ const Sidebar = ({ active, setActive }) => {
                 )}
               </IconButton>
             </ListItem>
-
           </List>
           <DropdownSetting
             dropdownOpen={dropdownOpen}
             active={active}
             setActive={setActive}
           />
-        </div>
+        </Box>
         <SidebarBottom />
-      </div>
+      </Box>
     </Box>
   );
 };
