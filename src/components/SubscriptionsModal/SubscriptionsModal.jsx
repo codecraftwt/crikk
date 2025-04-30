@@ -1,62 +1,272 @@
-// SubScriptionsModal.jsx
-import { Modal, Box, Typography, IconButton, Button, Grid, Paper } from "@mui/material";
+import React from "react";
+import {
+  Box,
+  Modal,
+  Typography,
+  IconButton,
+  Grid,
+  Card,
+  CardContent,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Button,
+} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import crown from "../../assets/logos/Vector.png";
+import prem1 from "../../assets/logos/freesub.svg";
+import prem2 from "../../assets/logos/freesub2.png";
 
 const plans = [
-  { title: "Basic", price: "$9/month" },
-  { title: "Pro", price: "$19/month" },
-  { title: "Enterprise", price: "$49/month" },
+  {
+    title: "Free Plan",
+    access: "Get",
+    price: "$0",
+    till: "",
+    includes: [
+      { tick: true, feature: "20,000 Characters" },
+      { tick: true, feature: "Free Voices Only" },
+      { tick: false, feature: "Pro Voices" },
+      { tick: false, feature: "Speaking Styles" },
+    ],
+  },
+  {
+    title: "Crikk Pro",
+    access: "Monthly",
+    price: "$14",
+    till: "/Monthly",
+    includes: [
+      { tick: true, feature: "Unlimited Characters (Free Voices)" },
+      { tick: true, feature: "300k Character (Pro Voices)" },
+      { tick: true, feature: "318 Free Voices & 246 Pro Voices" },
+      { tick: true, feature: "Speaking Styles" },
+    ],
+  },
+  {
+    title: "Crikk Pro",
+    access: "Lifetime",
+    price: "$97",
+    till: "Lifetime",
+    includes: [
+      { tick: true, feature: "Unlimited Characters (Free Voices)" },
+      { tick: true, feature: "300k Character (Pro Voices)" },
+      { tick: true, feature: "318 Free Voices & 246 Pro Voices" },
+      { tick: true, feature: "Speaking Styles" },
+    ],
+  },
 ];
 
 const SubScriptionsModal = ({ open, onClose }) => {
   return (
     <Modal open={open} onClose={onClose}>
-      <Box
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: { xs: "90%", sm: 600 },
-          bgcolor: "background.paper",
-          borderRadius: "12px",
-          boxShadow: 24,
-          p: 4,
-        }}
-      >
-        <IconButton onClick={onClose} sx={{ position: "absolute", top: 8, right: 8 }}>
+<Box
+  sx={{
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: {
+      xs: "80%",
+      sm: "90%",
+      md: "75%",
+      lg: "65%",
+    },
+    maxWidth: "1200px",
+    maxHeight: "90vh",
+    bgcolor: "#fff",
+    borderRadius: 6,
+    boxShadow: 24,
+    p: { xs: 2, md: 4 },
+    overflowY: "auto",
+  }}
+>
+
+        {/* Close button */}
+        <IconButton
+          onClick={onClose}
+          sx={{ position: "absolute", top: 8, right: 8 }}
+        >
           <CloseIcon />
         </IconButton>
 
-        <Typography variant="h6" sx={{ textAlign: "center", fontWeight: "bold", mb: 4 }}>
+        {/* Modal Title */}
+        <Typography variant="h6" fontWeight="bold" textAlign="center" mb={4}>
           Choose the plan that works best for you
         </Typography>
 
-        <Grid container spacing={2}>
-          {plans.map((plan) => (
-            <Grid item xs={12} sm={4} key={plan.title}>
-              <Paper
-                elevation={3}
+        <Box
+          sx={{
+            mt: 3,
+            display: "flex",
+            overflowX: { xs: "auto", md: "auto" },
+            flexWrap: { xs: "nowrap", md: "nowrap" },
+            gap: 3,
+            pb: 1,
+            minWidth:"320px",
+
+            "&::-webkit-scrollbar": {
+              display: "none",
+            },
+            "-ms-overflow-style": "none",
+            scrollbarWidth: "none",
+          }}
+        >
+          {plans.map((plan, index) => (
+            <Box
+              key={index}
+              sx={{
+                flex: { xs: "0 0 80%", sm: "0 0 50%", md: "1 1 300px" },
+                maxWidth: { md: "350px" },
+              }}
+            >
+              <Card
                 sx={{
-                  padding: 2,
-                  textAlign: "center",
-                  borderRadius: "10px",
-                  border: "1px solid #eee",
+                  borderRadius: 5,
+                  background:
+                    index === 1
+                      ? "linear-gradient(180deg, #C7B2FF -10%, #8657FB 100%)"
+                      : "#f7f7f7",
+                  boxShadow:
+                    "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+                  color: index === 1 ? "#fff" : "black",
+                  height: "100%",
                 }}
               >
-                <Typography variant="h6" sx={{ mb: 1 }}>
-                  {plan.title}
-                </Typography>
-                <Typography variant="body1" sx={{ mb: 2 }}>
-                  {plan.price}
-                </Typography>
-                <Button variant="contained" size="small">
-                  Upgrade Now
-                </Button>
-              </Paper>
-            </Grid>
+                <CardContent>
+                  <Box sx={{ display: "flex" }} m={1}>
+                    <img
+                      src={index === 0 ? prem1 : prem2}
+                      alt="img"
+                      style={{ width: "50px" }}
+                    />
+                    <Box ml={2}>
+                      <Typography
+                        variant="subtitle2"
+                        color={index === 1 ? "#ddd" : "text.secondary"}
+                      >
+                        {plan.access}
+                      </Typography>
+                      <Typography variant="h6" fontWeight={600}>
+                        {plan.title}
+                      </Typography>
+                    </Box>
+                  </Box>
+
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
+                    <Typography
+                      variant="h5"
+                      mt={1}
+                      mb={2}
+                      fontWeight={700}
+                      fontSize={40}
+                      sx={{ color: index === 1 ? "#fff" : "#170F49" }}
+                    >
+                      {plan.price}
+                    </Typography>
+                    <Typography
+                      variant="subtitle2"
+                      color={index === 1 ? "#ddd" : "text.secondary"}
+                      ml={1}
+                      fontSize={15}
+                      sx={{ color: index === 1 ? "#fff" : "#170F49" }}
+                    >
+                      {plan.till}
+                    </Typography>
+                  </Box>
+                  <Typography
+                    variant="subtitle2"
+                    sx={{
+                      color: index === 1 ? "#fff" : "#170F49",
+                      fontWeight: 600,
+                      fontSize: "1rem",
+                    }}
+                  >
+                    What's Included
+                  </Typography>
+
+                  <List>
+                    {plan.includes.map((item, idx) => (
+                      <ListItem key={idx} sx={{ paddingY: "4px" }}>
+                        <ListItemIcon>
+                          {item.tick ? (
+                            <CheckCircleIcon
+                              sx={{
+                                height: "2rem",
+                                color: index === 1 ? "#fff" : "#8A5CFF",
+                              }}
+                            />
+                          ) : (
+                            <CheckCircleIcon
+                              sx={{ height: "2rem", color: "lightgray" }}
+                            />
+                          )}
+                        </ListItemIcon>
+                        <ListItemText
+                          primary={
+                            <Box
+                              display="flex"
+                              alignItems="center"
+                              gap="0.5rem"
+                            >
+                              <span style={{ fontSize: "0.8rem" }}>
+                                {item.feature}
+                              </span>
+                              {!item.tick && (
+                                <img
+                                  src={crown}
+                                  alt="crown"
+                                  style={{ width: "1.3rem" }}
+                                />
+                              )}
+                            </Box>
+                          }
+                        />
+                      </ListItem>
+                    ))}
+                  </List>
+
+                  <Box textAlign="center" mt={2}>
+                    <Button
+                      variant="contained"
+                      sx={{
+                        backgroundColor: index === 1 ? "#fff" : "#8a5cff",
+                        color: index === 1 ? "#8a5cff" : "#fff",
+                        textTransform: "none",
+                        fontWeight: 600,
+                        width: "90%",
+                        borderRadius: "25px",
+                        height: "3rem",
+                        "&:hover": {
+                          backgroundColor:
+                            index === 1 ? "lightgray" : "#7a4be8",
+                        },
+                      }}
+                    >
+                      {index === 0 ? "Get Started" : "Upgrade Now"}
+                    </Button>
+                  </Box>
+                </CardContent>
+              </Card>
+            </Box>
           ))}
-        </Grid>
+        </Box>
+        <Typography
+          variant="body1"
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginTop: "2rem",
+            color: "#979797",
+            fontSize: "0.8rem",
+          }}
+        >
+          Terms & conditions apply*
+        </Typography>
       </Box>
     </Modal>
   );

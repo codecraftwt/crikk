@@ -111,7 +111,7 @@ const Sidebar = ({ active, setActive }) => {
                     "&.Mui-selected": {
                       backgroundColor: "#f0f0f0",
                     },
-                    borderLeft: active === item.key ? "4px solid #FD7E14" : "none",
+                    borderLeft: active === item.key ? "4px solid #8A5CFF" : "none",
                     paddingLeft: "2rem",
                   }}
                 >
@@ -143,7 +143,7 @@ const Sidebar = ({ active, setActive }) => {
                   "&.Mui-selected": {
                     backgroundColor: "#f0f0f0",
                   },
-                  borderLeft: active === "settings" ? "4px solid #FD7E14" : "none", // Add left border on active settings
+                  borderLeft: active === "settings" ? "4px solid #8A5CFF" : "none",
                   paddingLeft: "2rem",
                 }}
               >

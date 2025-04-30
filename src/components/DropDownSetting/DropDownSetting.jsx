@@ -41,7 +41,7 @@ const DropdownSetting = ({ dropdownOpen, active, setActive }) => {
             selected={active === "profile"}
             onClick={() => handleItemClick("profile")}
             sx={{
-              borderLeft: active === "profile" ? "4px solid #FD7E14" : "none",
+              borderLeft: active === "profile" ? "4px solid #8A5CFF" : "none",
               paddingLeft: "2rem",
               color: "#505050",
               "&:hover": {
@@ -69,7 +69,7 @@ const DropdownSetting = ({ dropdownOpen, active, setActive }) => {
               selected={active === "account"}
               onClick={() => handleItemClick("account")}
               sx={{
-                borderLeft: active === "account" ? "4px solid #FD7E14" : "none",
+                borderLeft: active === "account" ? "4px solid #8A5CFF" : "none",
                 paddingLeft: "2rem",
                 color: "#505050",
                 "&:hover": {
@@ -93,7 +93,7 @@ const DropdownSetting = ({ dropdownOpen, active, setActive }) => {
               selected={active === "terms"}
               onClick={() => handleItemClick("terms")}
               sx={{
-                borderLeft: active === "terms" ? "4px solid #FD7E14" : "none",
+                borderLeft: active === "terms" ? "4px solid #8A5CFF" : "none",
                 paddingLeft: "2rem",
                 color: "#505050",
                 "&:hover": {
@@ -117,7 +117,7 @@ const DropdownSetting = ({ dropdownOpen, active, setActive }) => {
               selected={active === "privacy"}
               onClick={() => handleItemClick("privacy")}
               sx={{
-                borderLeft: active === "privacy" ? "4px solid #FD7E14" : "none",
+                borderLeft: active === "privacy" ? "4px solid #8A5CFF" : "none",
                 paddingLeft: "2rem",
                 color: "#505050",
                 "&:hover": {
