@@ -4,7 +4,6 @@ import {
   Modal,
   Typography,
   IconButton,
-  Grid,
   Card,
   CardContent,
   List,
@@ -15,8 +14,6 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
-import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import crown from "../../assets/logos/Vector.png";
 import prem1 from "../../assets/logos/freesub.svg";
 import prem2 from "../../assets/logos/freesub2.png";
@@ -63,28 +60,22 @@ const plans = [
 const SubScriptionsModal = ({ open, onClose }) => {
   return (
     <Modal open={open} onClose={onClose}>
-<Box
-  sx={{
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: {
-      xs: "80%",
-      sm: "90%",
-      md: "75%",
-      lg: "65%",
-    },
-    maxWidth: "1200px",
-    maxHeight: "90vh",
-    bgcolor: "#fff",
-    borderRadius: 6,
-    boxShadow: 24,
-    p: { xs: 2, md: 4 },
-    overflowY: "auto",
-  }}
->
-
+      <Box
+        sx={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: { xs: "80%", sm: "90%", md: "80%", lg: "65%" },
+          maxWidth: "1200px",
+          maxHeight: "90vh",
+          bgcolor: "#fff",
+          borderRadius: 6,
+          boxShadow: 24,
+          p: { xs: 2, md: 4 },
+          overflowY: "auto",
+        }}
+      >
         {/* Close button */}
         <IconButton
           onClick={onClose}
@@ -106,7 +97,7 @@ const SubScriptionsModal = ({ open, onClose }) => {
             flexWrap: { xs: "nowrap", md: "nowrap" },
             gap: 3,
             pb: 1,
-            minWidth:"320px",
+            minWidth: "320px",
 
             "&::-webkit-scrollbar": {
               display: "none",
