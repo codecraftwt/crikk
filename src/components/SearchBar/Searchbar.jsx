@@ -1,5 +1,19 @@
 import React, { useState } from "react";
-import { Box, Button, TextField, useTheme, IconButton, useMediaQuery, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Collapse } from "@mui/material";
+import {
+  Box,
+  Button,
+  TextField,
+  useTheme,
+  IconButton,
+  useMediaQuery,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Collapse,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import FlashOnIcon from "@mui/icons-material/FlashOn";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
@@ -11,6 +25,8 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { Link, useLocation } from "react-router-dom";
+import AddIcon from "@mui/icons-material/Add";
+
 import "./Searchbar.css";
 //logo images
 import home from "../../assets/logos/home.png";
@@ -81,6 +97,29 @@ const SearchBar = ({ onUpgradeClick }) => {
             className="logo"
             style={{ width: "100px", height: "auto", padding: "2rem 0 1rem" }}
           />
+        </Box>
+        <Box sx={{display:"flex", justifyContent:"center", margin:"0.5rem 0"}}>
+          <Button
+            variant="contained"
+            startIcon={<AddIcon />}
+            sx={{
+              padding: "5px 10px",
+              fontSize: "0.8rem",
+              textAlign: "center",
+              background:
+                "linear-gradient(263.13deg, #8a5cff -9.08%, #596cff 95.46%)",
+              boxShadow: "0px 4px 8px 0px rgba(0, 0, 0, 0.04)",
+              borderRadius: "8px",
+              textTransform: "none",
+              color: "white",
+              "&:hover": {
+                background:
+                  "linear-gradient(263.13deg,rgb(63, 89, 255) -9.08%,rgb(150, 93, 199) 85%)",
+              },
+            }}
+          >
+            New Project
+          </Button>
         </Box>
         <List>
           {mainListItems.map(({ text, icon, to }) => (
@@ -218,7 +257,6 @@ const SearchBar = ({ onUpgradeClick }) => {
             <Button
               variant="contained"
               onClick={onUpgradeClick}
-
               startIcon={
                 <FlashOnIcon
                   sx={{

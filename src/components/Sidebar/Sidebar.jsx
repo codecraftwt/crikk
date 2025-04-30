@@ -12,9 +12,12 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import SidebarBottom from "../SidebarBottom/SidebarBottom";
 import DropdownSetting from "../DropDownSetting/DropDownSetting";
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText, IconButton, Button, Box } from "@mui/material";
+import NewProjectModal from "../NewProjectModal/NewProjectModal";
 
 const Sidebar = ({ active, setActive }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+
 
   const toggleDropdown = () => {
     setActive("settings");
@@ -43,6 +46,7 @@ const Sidebar = ({ active, setActive }) => {
   ];
 
   return (
+    <>
     <Box
       sx={{
         boxSizing: "border-box",
@@ -78,9 +82,10 @@ const Sidebar = ({ active, setActive }) => {
             <Button
               variant="contained"
               startIcon={<AddIcon />}
+              onClick={() => setModalOpen(true)}
               sx={{
                 padding: "10px 14px",
-                fontSize: "1.1rem",
+                fontSize: {md:"0.9rem", lg:"1rem"},
                 textAlign: "center",
                 background:
                   "linear-gradient(263.13deg, #8a5cff -9.08%, #596cff 95.46%)",
@@ -174,6 +179,11 @@ const Sidebar = ({ active, setActive }) => {
         <SidebarBottom />
       </Box>
     </Box>
+    <NewProjectModal
+    open={modalOpen}
+    close={() => setModalOpen(false)}
+     />
+    </>
   );
 };
 
