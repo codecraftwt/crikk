@@ -43,6 +43,7 @@ const SearchBar = ({ onUpgradeClick }) => {
   const location = useLocation();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const toggleActive = () => {
     setActive((prev) => !prev);
@@ -98,7 +99,9 @@ const SearchBar = ({ onUpgradeClick }) => {
             style={{ width: "100px", height: "auto", padding: "2rem 0 1rem" }}
           />
         </Box>
-        <Box sx={{display:"flex", justifyContent:"center", margin:"0.5rem 0"}}>
+        <Box
+          sx={{ display: "flex", justifyContent: "center", margin: "0.5rem 0" }}
+        >
           <Button
             variant="contained"
             startIcon={<AddIcon />}
@@ -372,6 +375,7 @@ const SearchBar = ({ onUpgradeClick }) => {
       <Drawer anchor="left" open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>
+      {/* <NewProjectModal open={modalOpen} close={() => setModalOpen(false)} /> */}
     </>
   );
 };

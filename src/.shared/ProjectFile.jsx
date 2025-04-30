@@ -1,0 +1,50 @@
+import React, { useState } from 'react';
+import { Box, Typography, Menu, MenuItem } from "@mui/material";
+import music from "../assets/logos/Music.png";
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+
+const ProjectFile = ({ projectName, fileCount, onEdit, onDelete }) => {
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleMenuClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleEdit = () => {
+    onEdit();
+    handleClose();
+  };
+
+  const handleDelete = () => {
+    onDelete();
+    handleClose();
+  };
+
+  return (
+    <Box sx={{ height: "100px", width: "250px", background: "#fff", display: "flex", alignItems: "center", paddingLeft: "0.8rem", borderRadius: "10px" }}>
+      <img src={music} alt="img" style={{ width: "90px" }} />
+      <Box sx={{ marginLeft: "1rem" }}>
+        <Box sx={{ display: "flex" }}>
+          <Typography variant='h5' sx={{ fontSize: "1rem" }}>{projectName}</Typography>
+          <MoreVertIcon onClick={handleMenuClick} sx={{cursor:"pointer"}}/>
+        </Box>
+        <Typography fontSize={15} sx={{ color: "#7D7D7D" }}>{fileCount} Files</Typography>
+      </Box>
+
+      <Menu
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={handleEdit}>Edit Project</MenuItem>
+        <MenuItem onClick={handleDelete}>Delete Project</MenuItem>
+      </Menu>
+    </Box>
+  );
+};
+
+export default ProjectFile;

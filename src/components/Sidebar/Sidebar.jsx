@@ -160,14 +160,15 @@ const Sidebar = ({ active, setActive }) => {
                   />
                 </ListItemIcon>
                 <ListItemText primary="Settings" />
-              </ListItemButton>
-              <IconButton onClick={toggleDropdown}>
+                <IconButton onClick={toggleDropdown}>
                 {dropdownOpen ? (
                   <KeyboardArrowUpIcon />
                 ) : (
                   <KeyboardArrowDownIcon />
                 )}
               </IconButton>
+              </ListItemButton>
+
             </ListItem>
           </List>
           <DropdownSetting

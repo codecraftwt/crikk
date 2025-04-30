@@ -9,14 +9,15 @@ import Account from "./pages/Account/Account.jsx";
 import Terms from "./pages/Terms/Terms.jsx";
 import Privacy from "./pages/Privacy/Privacy.jsx";
 import Password from "./pages/Password/Password.jsx";
-import DeleteAccountModal from "./components/DeleteAccountModal/DeleteAccountModal.jsx";
+import NotFound from "./pages/NotFound/NotFound.jsx";
+import ProjectFile from "./.shared/ProjectFile.jsx";
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Navigate to="/dashboard" />} />
-        <Route path="/" element={<DeleteAccountModal />} />
+        {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
+        <Route path="/" element={<ProjectFile />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/subscriptions" element={<Subscription />} />
         <Route path="/helpcenter" element={<HelpCenter />} />
@@ -25,6 +26,7 @@ function App() {
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/password" element={<Password />} />
+        <Route path="/notfound" element={<NotFound />} />
       </Routes>
     </div>
   );
