@@ -5,7 +5,7 @@ import AddIcon from "@mui/icons-material/Add";
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 import FileData from "../../shared/FileData";
 import { useNavigate } from "react-router-dom";
-const DashboardFileContent = () => {
+const DashboardFileContent = ({onMergeClick}) => {
     const navigate = useNavigate();
   return (
     <Box
@@ -83,7 +83,7 @@ const DashboardFileContent = () => {
             <Button
               variant="contained"
               startIcon={<AddIcon />}
-              //   onClick={() => setModalOpen(true)}
+                onClick={onMergeClick}
               sx={{
                 padding: "10px 14px",
                 fontSize: { md: "0.9rem", lg: "1rem" },

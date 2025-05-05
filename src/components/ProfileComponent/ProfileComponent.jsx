@@ -6,8 +6,10 @@ import PersonIcon from "@mui/icons-material/Person";
 import EmailIcon from "@mui/icons-material/Email";
 import StarIcon from "@mui/icons-material/Star";
 import EditUserModal from "../EditUserModal/EditUserModal";
+import { useNavigate } from "react-router-dom";
 const ProfileComponent = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
   const [user, setUser] = useState({
     firstName: "Lorem",
@@ -80,22 +82,52 @@ const ProfileComponent = () => {
                 >
                   Profile Settings
                 </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{
-                    fontSize: "0.9rem",
-                    padding: "1rem 0",
-                    color: "#8F8F8F",
-                    [theme.breakpoints.down("sm")]: {
-                      fontSize: "0.7rem",
-                    },
-                  }}
-                >
-                  Settings <ArrowForwardIosIcon sx={{ fontSize: "0.7rem" }} />{" "}
-                  Account Settings{" "}
-                  <ArrowForwardIosIcon sx={{ fontSize: "0.7rem" }} /> Profile
-                  Settings
-                </Typography>
+
+                <Box sx={{display:"flex"}}>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontSize: "0.9rem",
+                      padding: "1rem 0",
+                      color: "#8F8F8F",
+                      [theme.breakpoints.down("sm")]: {
+                        fontSize: "0.7rem",
+                      },
+                    }}
+                  >
+                    Settings <ArrowForwardIosIcon sx={{ fontSize: "0.7rem" }} />
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "0.9rem",
+                      padding: "1rem 0",
+                      color: "#8F8F8F",
+                      [theme.breakpoints.down("sm")]: {
+                        fontSize: "0.7rem",
+                      },
+                      cursor:"pointer"
+                    }}
+                    onClick={() => {
+                      navigate("/account");
+                    }}
+                  >
+                    Account Settings
+                    <ArrowForwardIosIcon sx={{ fontSize: "0.7rem" }} />
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontSize: "0.9rem",
+                      padding: "1rem 0",
+                      color: "#8F8F8F",
+                      [theme.breakpoints.down("sm")]: {
+                        fontSize: "0.7rem",
+                      },
+                    }}
+                  >
+                    {" "}
+                    Profile Settings
+                  </Typography>
+                </Box>
               </Box>
               <Box>
                 <Button

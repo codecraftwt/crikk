@@ -5,9 +5,7 @@ import {
   Typography,
   TextField,
   Button,
-  IconButton,
 } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
 
 const NewProjectModal = ({ open, close }) => {
   const [projectName, setProjectName] = useState("");
