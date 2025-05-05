@@ -10,7 +10,6 @@ import Terms from "./pages/Terms/Terms.jsx";
 import Privacy from "./pages/Privacy/Privacy.jsx";
 import Password from "./pages/Password/Password.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
-import ProjectFile from "./shared/ProjectFile.jsx";
 import DashboardData from "./pages/DashboardData/DashboardData.jsx";
 import NewFile from "./pages/NewFile/NewFile.jsx";
 
@@ -18,8 +17,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
-        <Route path="/" element={<ProjectFile />} />
+        <Route path="/" element={<Navigate to="/dashboard" />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboarddata" element={<DashboardData />} />
         <Route path="/subscriptions" element={<Subscription />} />
