@@ -12,6 +12,7 @@ import Password from "./pages/Password/Password.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import ProjectFile from "./shared/ProjectFile.jsx";
 import DashboardData from "./pages/DashboardData/DashboardData.jsx";
+import NewFile from "./pages/NewFile/NewFile.jsx";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/password" element={<Password />} />
+        <Route path="/newfile" element={<NewFile />} />
         <Route path="/notfound" element={<NotFound />} />
       </Routes>
     </div>

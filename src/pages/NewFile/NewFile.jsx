@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Searchbar from "../../components/Searchbar/Searchbar.jsx";
 import { Box } from "@mui/material";
-import DashboardContent from "../../components/DashboardContent/DashboardContent.jsx";
 import SubScriptionsModal from "../../components/SubscriptionsModal/SubscriptionsModal.jsx";
+import NewFileComponent from "../../components/NewFileComponent/NewFileComponent.jsx";
 
-const Dashboard = () => {
+const NewFile = () => {
   const [active, setActive] = useState("dashboard");
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -30,7 +30,7 @@ const Dashboard = () => {
           }}
         >
           <Searchbar onUpgradeClick={() => setModalOpen(true)} />
-          <DashboardContent />
+          <NewFileComponent />
         </Box>
       </Box>
       <SubScriptionsModal
@@ -41,4 +41,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default NewFile;

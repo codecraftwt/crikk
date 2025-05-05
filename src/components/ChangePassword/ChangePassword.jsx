@@ -10,12 +10,14 @@ import {
   IconButton,
   InputAdornment,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import settingbg from "../../assets/images/settingbg.png";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import PasswordSuccessModal from "../PasswordSuccessModal/PasswordSuccessModal";
 
 const ChangePassword = () => {
+  const navigate = useNavigate();
   const theme = useTheme();
   const [modalOpen, setModalOpen] = useState(false);
   const [form, setForm] = useState({
@@ -106,27 +108,56 @@ const ChangePassword = () => {
             >
               Change Password
             </Typography>
+            <Box sx={{display:"flex"}}>
             <Typography
-              variant="body1"
-              sx={{
-                fontSize: "0.9rem",
-                padding: "1rem 0",
-                color: "#8F8F8F",
-                [theme.breakpoints.down("sm")]: {
-                  fontSize: "0.7rem",
-                },
-              }}
-            >
-              Settings <ArrowForwardIosIcon sx={{ fontSize: "0.7rem" }} />{" "}
-              Account Settings{" "}
-              <ArrowForwardIosIcon sx={{ fontSize: "0.7rem" }} /> Change
-              Password
-            </Typography>
+                    variant="body1"
+                    sx={{
+                      fontSize: "0.9rem",
+                      padding: "1rem 0",
+                      color: "#8F8F8F",
+                      [theme.breakpoints.down("sm")]: {
+                        fontSize: "0.7rem",
+                      },
+                    }}
+                  >
+                    Settings <ArrowForwardIosIcon sx={{ fontSize: "0.7rem" }} />
+                  </Typography>
+              <Typography
+                sx={{
+                  fontSize: "0.9rem",
+                  padding: "1rem 0",
+                  paddingLeft:"0.2rem",
+                  color: "#8F8F8F",
+                  [theme.breakpoints.down("sm")]: {
+                    fontSize: "0.7rem",
+                  },
+                  cursor: "pointer",
+                }}
+                onClick={() => {
+                  navigate("/account");
+                }}
+              >
+                Account Settings
+                <ArrowForwardIosIcon sx={{ fontSize: "0.7rem" }} />
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "0.9rem",
+                  padding: "1rem 0",
+                  color: "#8F8F8F",
+                  [theme.breakpoints.down("sm")]: {
+                    fontSize: "0.7rem",
+                  },
+                }}
+              >
+                Change Password
+              </Typography>
+              </Box>
             <Typography
               variant="h5"
               sx={{
                 fontSize: "1.2rem",
-                padding: "1rem 0",
+                paddingBottom: "1rem",
                 color: "#505050",
                 [theme.breakpoints.down("sm")]: {
                   fontSize: "1rem",
@@ -163,7 +194,7 @@ const ChangePassword = () => {
               </Typography>
               <TextField
                 type={showPassword.current ? "text" : "password"}
-                label="Current Password"
+                placeholder="Current Password"
                 name="currentPassword"
                 value={form.currentPassword}
                 onChange={handleChange}
@@ -201,7 +232,7 @@ const ChangePassword = () => {
               </Typography>
               <TextField
                 type={showPassword.new ? "text" : "password"}
-                label="New Password"
+                placeholder="New Password"
                 name="newPassword"
                 value={form.newPassword}
                 onChange={handleChange}
@@ -232,7 +263,7 @@ const ChangePassword = () => {
               </Typography>
               <TextField
                 type={showPassword.confirm ? "text" : "password"}
-                label="Confirm New Password"
+                placeholder="Confirm New Password"
                 name="confirmNewPassword"
                 value={form.confirmNewPassword}
                 onChange={handleChange}
