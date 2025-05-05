@@ -4,7 +4,9 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import AddIcon from "@mui/icons-material/Add";
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 import FileData from "../../shared/FileData";
+import { useNavigate } from "react-router-dom";
 const DashboardFileContent = () => {
+    const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -65,7 +67,9 @@ const DashboardFileContent = () => {
                 fontSize: "0.9rem",
                 padding: "1rem 0",
                 color: "#8F8F8F",
+                cursor:"pointer"
               }}
+              onClick={() => {navigate("/dashboard")}}
             >
               Dashboard{" "}
               <ArrowForwardIosIcon

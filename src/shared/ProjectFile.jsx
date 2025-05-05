@@ -2,9 +2,17 @@ import React, { useState } from "react";
 import { Box, Typography, Menu, MenuItem } from "@mui/material";
 import music from "../assets/logos/Music.png";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { useNavigate } from "react-router-dom";
 
-const ProjectFile = ({ projectName, fileCount, onEdit, onDelete, isFullWidth }) => {
+const ProjectFile = ({
+  projectName,
+  fileCount,
+  onEdit,
+  onDelete,
+  isFullWidth,
+}) => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const navigate = useNavigate();
 
   const handleMenuClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -12,6 +20,10 @@ const ProjectFile = ({ projectName, fileCount, onEdit, onDelete, isFullWidth }) 
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const toggledata = () => {
+    navigate("/dashboarddata");
   };
 
   return (
@@ -25,15 +37,24 @@ const ProjectFile = ({ projectName, fileCount, onEdit, onDelete, isFullWidth }) 
         paddingLeft: "0.8rem",
         borderRadius: "10px",
         marginBottom: "1rem",
+        cursor: "pointer",
       }}
     >
-      <img src={music} alt="img" style={{ width: "90px" }} />
+      <img
+        src={music}
+        alt="img"
+        onClick={toggledata}
+        style={{ width: "90px" }}
+      />
       <Box sx={{ marginLeft: "1rem" }}>
         <Box sx={{ display: "flex" }}>
           <Typography variant="h5" sx={{ fontSize: "1rem" }}>
             {projectName}
           </Typography>
-          <MoreVertIcon onClick={handleMenuClick} sx={{ cursor: "pointer" }} />
+          <MoreVertIcon
+            onClick={handleMenuClick}
+            sx={{ cursor: "pointer", zIndex: "99" }}
+          />
         </Box>
         <Typography fontSize={15} sx={{ color: "#7D7D7D" }}>
           {fileCount} Files

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Typography,
@@ -13,6 +14,7 @@ import ListIcon from "@mui/icons-material/List";
 const DashboardContent = () => {
   const [viewMode, setViewMode] = useState("grid"); // "grid" or "list"
   const [sort, setSort] = useState("date");
+  const navigate = useNavigate();
 
   const dummyProjects = [
     { name: "Project 1", fileCount: 0 },
@@ -29,6 +31,10 @@ const DashboardContent = () => {
 
   const handleDelete = (projectName) => {
     alert(`Deleting ${projectName}`);
+  };
+
+  const toggledata = () => {
+    navigate("/dashboarddata");
   };
 
   return (
@@ -58,15 +64,18 @@ const DashboardContent = () => {
         <Box
           sx={{
             display: "flex",
-            width:"100%",
+            width: "100%",
             justifyContent: "space-between",
             alignItems: "center",
             margin: "1.5rem 0",
-            boxSizing:"border-box",
-            padding:"0 1rem"
+            boxSizing: "border-box",
+            padding: "0 1rem",
           }}
         >
-          <Typography variant="h6" sx={{ fontWeight: "bold", color:"#3E3E3E"  }}>
+          <Typography
+            variant="h6"
+            sx={{ fontWeight: "bold", color: "#3E3E3E" }}
+          >
             My Projects
           </Typography>
 

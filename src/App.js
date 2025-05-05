@@ -11,6 +11,7 @@ import Privacy from "./pages/Privacy/Privacy.jsx";
 import Password from "./pages/Password/Password.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import ProjectFile from "./shared/ProjectFile.jsx";
+import DashboardData from "./pages/DashboardData/DashboardData.jsx";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         {/* <Route path="/" element={<Navigate to="/dashboard" />} /> */}
         <Route path="/" element={<ProjectFile />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboarddata" element={<DashboardData />} />
         <Route path="/subscriptions" element={<Subscription />} />
         <Route path="/helpcenter" element={<HelpCenter />} />
         <Route path="/profile" element={<Profile />} />
