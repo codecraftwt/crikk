@@ -10,7 +10,7 @@ import Terms from "./pages/Terms/Terms.jsx";
 import Privacy from "./pages/Privacy/Privacy.jsx";
 import Password from "./pages/Password/Password.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
-import ProjectFile from "./.shared/ProjectFile.jsx";
+import ProjectFile from "./shared/ProjectFile.jsx";
 
 function App() {
   return (

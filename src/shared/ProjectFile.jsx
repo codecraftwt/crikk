@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Typography, Menu, MenuItem } from "@mui/material";
-import music from "../assets/logos/Music.png"; // Make sure the path is correct
+import music from "../assets/logos/Music.png";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 const ProjectFile = ({ projectName, fileCount, onEdit, onDelete, isFullWidth }) => {
@@ -18,7 +18,7 @@ const ProjectFile = ({ projectName, fileCount, onEdit, onDelete, isFullWidth }) 
     <Box
       sx={{
         height: "100px",
-        width: isFullWidth ? "100%" : { xs: "100%", sm: "250px" },
+        width: isFullWidth ? "100%" : { xs: "100%", sm: "200px" },
         background: "#fff",
         display: "flex",
         alignItems: "center",

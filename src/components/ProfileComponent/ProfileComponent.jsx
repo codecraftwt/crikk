@@ -107,7 +107,7 @@ const ProfileComponent = () => {
                     padding: "0.6rem ",
                     borderRadius: "10px",
                     textTransform: "none",
-                    zIndex:"9",
+                    zIndex: "9",
                     [theme.breakpoints.down("sm")]: {
                       fontSize: "0.6rem",
                       padding: "0.4rem",
