@@ -5,11 +5,21 @@ import { Box } from "@mui/material";
 import SubScriptionsModal from "../../components/SubscriptionsModal/SubscriptionsModal.jsx";
 import DashboardFileContent from "../../components/DashboardFileContent/DashboardFileContent.jsx";
 import MergeAudioModal from "../../components/MergeAudioModal/MergeAudioModal.jsx";
+import NewFileModal from "../../components/NewFileModal/NewFileModal.jsx";
 
 const DashboardData = () => {
   const [active, setActive] = useState("dashboard");
   const [modalOpen, setModalOpen] = useState(false);
   const [mergeModalOpen, setMergeModalOpen] = useState(false);
+  const [fileModalOpen, setFileModalOpen] = useState(false);
+
+  const onMergeClick = () =>{
+    setMergeModalOpen(true);
+  }
+  const onAddFileClick = () =>{
+    setFileModalOpen(true);
+    console.log("clicked");
+  }
 
   return (
     <>
@@ -32,16 +42,23 @@ const DashboardData = () => {
           }}
         >
           <Searchbar onUpgradeClick={() => setModalOpen(true)} />
-          <DashboardFileContent onMergeClick ={() => setMergeModalOpen(true)} />
+          <DashboardFileContent 
+          onMergeClick={onMergeClick} 
+          onAddFileClick={onAddFileClick}
+          />
         </Box>
       </Box>
       <SubScriptionsModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
       />
-      <MergeAudioModal 
-      open = {mergeModalOpen}
-      onClose = {() => setMergeModalOpen(false)}
+      <MergeAudioModal
+        open={mergeModalOpen}
+        onClose={() => setMergeModalOpen(false)}
+      />
+      <NewFileModal
+        open={fileModalOpen}
+        onClose={() => setFileModalOpen(false)}
       />
     </>
   );

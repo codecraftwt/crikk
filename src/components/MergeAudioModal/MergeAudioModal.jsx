@@ -2,6 +2,7 @@ import React from "react";
 import { Modal, Box, Typography, Button } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import FileLogo from "../../assets/logos/File.png";
+import { Upload } from "@mui/icons-material";
 
 const MergeAudioModal = ({open, onClose }) => {
 
