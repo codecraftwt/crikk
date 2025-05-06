@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   Modal,
   Box,
@@ -14,17 +14,47 @@ import GraphicEqIcon from "@mui/icons-material/GraphicEq";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import SpeedIcon from "@mui/icons-material/Speed";
-const NewFileComponentModal = ({ onClose }) => {
-  const open = true;
-  const [text, setText] = useState("");
+import SpeedModal from "../SpeedModal/SpeedModal";
+import PitchModal from "../PitchModal/PitchModal";
+import VoicesModal from "../VoiceModal/VoiceModal";
+
+const NewFileComponentModal = ({ open, onClose }) => {
+  const [text, setText] = useState(
+    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+  );
+  const [title, setTitle] = useState("The Alchemist")
   const [language, setLanguage] = useState("en-US");
   const [style, setStyle] = useState("default");
   const [pause, setPause] = useState(0);
   const maxLength = 2000;
+  const [openVoice, setOpenVoice] = useState(false);
+  const [openSpeed, setOpenSpeed] = useState(false);
+  const [openPitch, setOpenPitch] = useState(false);
+
+  const buttonRef = useRef(null);
+  const buttonRef1 = useRef(null);
+  const buttonRef2 = useRef(null);
+
+  const handleVoiceOpen = () => setOpenVoice(true);
+  const handleSpeedOpen = () => setOpenSpeed(true);
+  const handlePitchOpen = () => setOpenPitch(true);
+
+  const handleClose = () => setOpenVoice(false);
+  const handleSpeedClose = () => setOpenSpeed(false);
+  const handlePitchClose = () => setOpenPitch(false);
+
+  const rect = buttonRef.current?.getBoundingClientRect();
+  const rect1 = buttonRef1.current?.getBoundingClientRect();
+  const rect2 = buttonRef2.current?.getBoundingClientRect();
 
   const handleChange = (event) => {
     setText(event.target.value);
   };
+
+  const changeTitle = (event) => {
+    setTitle(event.target.value);
+  };
+  
   const handleLanguageChange = (event) => {
     setLanguage(event.target.value);
   };
@@ -47,8 +77,7 @@ const NewFileComponentModal = ({ onClose }) => {
             boxSizing: "border-box",
             width: "100vw",
             height: "100vh",
-            display:"flex"
-
+            display: "flex",
           }}
         >
           <Box
@@ -59,9 +88,9 @@ const NewFileComponentModal = ({ onClose }) => {
               height: "85%",
               width: "80%",
               overflowY: "auto",
-              margin:"auto",
-              maxWidth:"1000px",
-              maxHeight:"700px"
+              margin: "auto",
+              maxWidth: "1000px",
+              maxHeight: "700px",
             }}
           >
             <Box
@@ -91,6 +120,8 @@ const NewFileComponentModal = ({ onClose }) => {
             <TextField
               variant="outlined"
               placeholder="Enter Title"
+              value={title}
+              onChange={changeTitle}
               sx={{
                 padding: "0rem 2rem",
                 width: "100%",
@@ -215,11 +246,13 @@ const NewFileComponentModal = ({ onClose }) => {
                   display={"flex"}
                   alignItems={"center"}
                   sx={{ cursor: "pointer" }}
+                  onClick={handleVoiceOpen}
                 >
                   <Box
                     component="img"
                     src={Avatar}
                     alt="image"
+                    ref={buttonRef}
                     sx={{
                       height: "2.5rem",
                       background: "#2061D6",
@@ -248,8 +281,12 @@ const NewFileComponentModal = ({ onClose }) => {
                   display={"flex"}
                   alignItems={"center"}
                   sx={{ cursor: "pointer" }}
+                  onClick={handleSpeedOpen}
                 >
-                  <SpeedIcon sx={{ color: "#7D7D7D", fontSize: "2rem" }} />
+                  <SpeedIcon
+                    ref={buttonRef1}
+                    sx={{ color: "#7D7D7D", fontSize: "2rem" }}
+                  />
                   <Typography
                     color="#7D7D7D"
                     sx={{ marginLeft: "0.5rem", fontSize: "0.9rem" }}
@@ -262,8 +299,12 @@ const NewFileComponentModal = ({ onClose }) => {
                   display={"flex"}
                   alignItems={"center"}
                   sx={{ cursor: "pointer" }}
+                  onClick={handlePitchOpen}
                 >
-                  <GraphicEqIcon sx={{ color: "#7D7D7D", fontSize: "2rem" }} />
+                  <GraphicEqIcon
+                    ref={buttonRef2}
+                    sx={{ color: "#7D7D7D", fontSize: "2rem" }}
+                  />
                   <Typography
                     color="#7D7D7D"
                     sx={{ marginLeft: "0.5rem", fontSize: "0.9rem" }}
@@ -304,6 +345,21 @@ const NewFileComponentModal = ({ onClose }) => {
           </Box>
         </Box>
       </Modal>
+      <VoicesModal
+        open={openVoice}
+        onClose={handleClose}
+        anchorElPosition={rect}
+      />
+      <SpeedModal
+        open={openSpeed}
+        onClose={handleSpeedClose}
+        anchorElPosition={rect1}
+      />
+      <PitchModal
+        open={openPitch}
+        onClose={handlePitchClose}
+        anchorElPosition={rect2}
+      />
     </>
   );
 };
