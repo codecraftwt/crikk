@@ -1,31 +1,18 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Button,
-  TextField,
-  useTheme,
-  IconButton,
-  useMediaQuery,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Collapse,
-} from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
-import FlashOnIcon from "@mui/icons-material/FlashOn";
-import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
+import {Box, Button, TextField, useTheme, IconButton, useMediaQuery, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Collapse,} from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import MenuIcon from "@mui/icons-material/Menu";
-import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import AddIcon from "@mui/icons-material/Add";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
+import FlashOnIcon from "@mui/icons-material/FlashOn";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Link, useLocation } from "react-router-dom";
-import AddIcon from "@mui/icons-material/Add";
+import MenuIcon from "@mui/icons-material/Menu";
+import NewProjectModal from "../NewProjectModal/NewProjectModal";
+import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
+import SearchIcon from "@mui/icons-material/Search";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 
 import "./Searchbar.css";
 //logo images
@@ -105,6 +92,7 @@ const SearchBar = ({ onUpgradeClick }) => {
           <Button
             variant="contained"
             startIcon={<AddIcon />}
+            onClick={() => setModalOpen(true)}
             sx={{
               padding: "5px 10px",
               fontSize: "0.8rem",
@@ -375,6 +363,7 @@ const SearchBar = ({ onUpgradeClick }) => {
       <Drawer anchor="left" open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>
+      <NewProjectModal open={modalOpen} close={() => setModalOpen(false)} />
     </>
   );
 };
