@@ -4,9 +4,15 @@ import FileLogo from "../assets/logos/File.png";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import DateRangeOutlinedIcon from "@mui/icons-material/DateRangeOutlined";
 import TimerOutlinedIcon from "@mui/icons-material/TimerOutlined";
+import ViewFileModal from "../components/ViewFileModal/ViewFileModal";
 
 const FileData = () => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleCloseModal = () => setOpenModal(false);
+
+  const togglemodal = () => setOpenModal(true);
 
   const handleMenuClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -21,6 +27,7 @@ const FileData = () => {
   const formattedDate = new Intl.DateTimeFormat("en-GB").format(date); // "22/12/2024"
 
   return (
+    <>
     <Box
       sx={{
         backgroundColor: "#EAE1FFC4",
@@ -43,10 +50,12 @@ const FileData = () => {
           component="img"
           src={FileLogo}
           alt="Text FIle"
+          onClick={togglemodal}
           sx={{
             width: "65%",
             display: "flex",
             margin: "auto",
+            cursor:"pointer"
           }}
         />
         <Box
@@ -105,6 +114,11 @@ const FileData = () => {
         </Menu>
       </Box>
     </Box>
+    <ViewFileModal
+    open={openModal}
+    onClose= {handleCloseModal}
+    />
+    </>
   );
 };
 

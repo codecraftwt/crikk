@@ -11,7 +11,7 @@ const handleLanguageChange = (event) => {
   setLanguage(event.target.value);
 };
   return (
-    <Modal open={open} onClose={onClose}>
+    <Modal open={open} onClose={onClose} >
       <Box
         sx={{
           position: "absolute",
@@ -28,6 +28,7 @@ const handleLanguageChange = (event) => {
           boxShadow: 24,
           outline: "none",
           width: "280px",
+          zIndex:"9999"
         }}
       >
         <Box
