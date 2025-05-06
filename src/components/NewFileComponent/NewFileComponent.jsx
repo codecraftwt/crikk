@@ -16,6 +16,7 @@ import SpeedIcon from "@mui/icons-material/Speed";
 import { useNavigate } from "react-router-dom";
 import VoicesModal from "../VoiceModal/VoiceModal";
 import SpeedModal from "../SpeedModal/SpeedModal";
+import PitchModal from "../PitchModal/PitchModal";
 
 const NewFileComponent = () => {
   const [text, setText] = useState("");
@@ -26,17 +27,23 @@ const NewFileComponent = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [openSpeed, setOpenSpeed] = useState(false);
+  const [openPitch, setOpenPitch] = useState(false);
+
   const buttonRef = useRef(null);
   const buttonRef1 = useRef(null);
+  const buttonRef2 = useRef(null);
 
   const handleOpen = () => setOpen(true);
   const handleSpeedOpen = () => setOpenSpeed(true);
+  const handlePitchOpen = () => setOpenPitch(true);
 
   const handleClose = () => setOpen(false);
   const handleSpeedClose = () => setOpenSpeed(false);
+  const handlePitchClose = () => setOpenPitch(false);
 
   const rect = buttonRef.current?.getBoundingClientRect();
   const rect1 = buttonRef1.current?.getBoundingClientRect();
+  const rect2 = buttonRef2.current?.getBoundingClientRect();
 
   const handleChange = (event) => {
     setText(event.target.value);
@@ -272,7 +279,6 @@ const NewFileComponent = () => {
                 alignItems={"center"}
                 sx={{ cursor: "pointer" }}
                 onClick={handleSpeedOpen}
-
               >
                 <SpeedIcon
                   ref={buttonRef1}
@@ -290,8 +296,12 @@ const NewFileComponent = () => {
                 display={"flex"}
                 alignItems={"center"}
                 sx={{ cursor: "pointer" }}
+                onClick={handlePitchOpen}
               >
-                <GraphicEqIcon sx={{ color: "#7D7D7D", fontSize: "2rem" }} />
+                <GraphicEqIcon
+                  ref={buttonRef2}
+                  sx={{ color: "#7D7D7D", fontSize: "2rem" }}
+                />
                 <Typography
                   color="#7D7D7D"
                   sx={{ marginLeft: "0.5rem", fontSize: "0.9rem" }}
@@ -330,7 +340,16 @@ const NewFileComponent = () => {
         </Box>
       </Box>
       <VoicesModal open={open} onClose={handleClose} anchorElPosition={rect} />
-      <SpeedModal open={openSpeed} onClose={handleSpeedClose} anchorElPosition={rect1} />
+      <SpeedModal
+        open={openSpeed}
+        onClose={handleSpeedClose}
+        anchorElPosition={rect1}
+      />
+      <PitchModal
+        open={openPitch}
+        onClose={handlePitchClose}
+        anchorElPosition={rect2}
+      />
     </>
   );
 };

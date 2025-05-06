@@ -32,7 +32,7 @@ const CustomSlider = ({ speed, setSpeed }) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        marginRight: "2.5rem",
+        marginRight: "1rem",
       }}
     >
       <Box
@@ -73,31 +73,18 @@ const CustomSlider = ({ speed, setSpeed }) => {
   );
 };
 
-const SpeedModal = ({ open, onClose, anchorElPosition }) => {
-  const [speed, setSpeed] = useState(1);
-  const [productivityBoost, setProductivityBoost] = useState(0);
-  const [duration, setDuration] = useState(60);
-  const wordsPerMinute = 150;
+const PitchModal = ({ open, onClose, anchorElPosition }) => {
+  const [speed, setSpeed] = useState(1.5);
 
   const updateSpeed = (newSpeed) => {
     setSpeed(newSpeed);
-    setDuration(60 / newSpeed);
-
-    if (newSpeed > 1) {
-      const boost = Math.round((newSpeed - 1) * 30);
-      setProductivityBoost(boost);
-    } else {
-      setProductivityBoost(0);
-    }
   };
 
-  const wordsPerMinuteCalculated = wordsPerMinute * speed;
-
   const getSpeedLabel = () => {
-    if (speed <= 0.5) return "Slow";
-    if (speed === 1) return "Normal";
-    if (speed > 1 && speed <= 2.5) return "Fast";
-    return "Super Fast";
+    if (speed < 1.5) return "Low";
+    if (speed === 1.5) return "Default";
+    if (speed > 1.5) return "High";
+    return "High";
   };
 
   return (
@@ -115,8 +102,8 @@ const SpeedModal = ({ open, onClose, anchorElPosition }) => {
           bgcolor: "white",
           borderRadius: 2,
           p: 3,
-          width: "380px",
-          height: "260px",
+          width: "280px",
+          height: "240px",
           boxShadow: 24,
           borderRadius: "20px",
           boxSizing: "border-box",
@@ -133,6 +120,7 @@ const SpeedModal = ({ open, onClose, anchorElPosition }) => {
             borderLeft: "10px solid transparent",
             borderRight: "10px solid transparent",
             borderTop: "10px solid white",
+
           }}
         />
         <Box
@@ -140,29 +128,7 @@ const SpeedModal = ({ open, onClose, anchorElPosition }) => {
             width: "50%",
           }}
         >
-          <Typography
-            variant="body2"
-            sx={{
-              fontSize: "1.5rem",
-              fontWeight: "600",
-              textAlign: "center",
-              color: "#0B0B0B",
-            }}
-          >
-            {getSpeedLabel()}
-          </Typography>
-          <Typography
-            variant="body2"
-            sx={{
-              mt: 0.5,
-              color: "#6A6A6A",
-              textAlign: "center",
-              fontSize: "1.1rem",
-            }}
-          >
-            Duration: {duration.toFixed(2)}.00
-          </Typography>
-
+            <Typography variant="body1" sx={{textAlign:"center", fontSize:"1.2rem", marginTop:"3rem", color:"#0B0B0B", fontWeight:"600"}}>Voice Pitch</Typography>
           <Box
             sx={{
               display: "flex",
@@ -179,8 +145,8 @@ const SpeedModal = ({ open, onClose, anchorElPosition }) => {
               <RemoveIcon sx={{ color: "black", fontSize: "1.2rem" }} />
             </IconButton>
 
-            <Typography variant="h4" fontWeight={"bold"}>
-              {speed}x
+            <Typography variant="h5" fontWeight={"bold"}>
+              {speed}
             </Typography>
 
             <IconButton
@@ -190,19 +156,16 @@ const SpeedModal = ({ open, onClose, anchorElPosition }) => {
               <AddIcon sx={{ color: "black", fontSize: "1.2rem" }} />
             </IconButton>
           </Box>
-
           <Typography
             variant="body2"
-            sx={{ mt: 1, color: "#6A6A6A", textAlign: "center" }}
+            sx={{
+              fontSize: "1rem",
+              textAlign: "center",
+              color: "#6A6A6A",
+            }}
           >
-            {wordsPerMinuteCalculated.toFixed(0)} words per minute
+            {getSpeedLabel()}
           </Typography>
-
-          {productivityBoost > 0 && (
-            <Typography variant="body2" sx={{ mt: 3, mb: 2, color: "green" }}>
-              +{productivityBoost}% productivity boost
-            </Typography>
-          )}
         </Box>
         <Box sx={{ width: "50%", display: "flex", justifyContent: "end" }}>
           <CustomSlider speed={speed} setSpeed={updateSpeed} />
@@ -212,4 +175,4 @@ const SpeedModal = ({ open, onClose, anchorElPosition }) => {
   );
 };
 
-export default SpeedModal;
+export default PitchModal;
