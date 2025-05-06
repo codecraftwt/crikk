@@ -1,7 +1,43 @@
-import React from "react";
-import { Modal, Box, Typography, Button } from "@mui/material";
+import React, { useState } from "react";
+import {
+  Modal,
+  Box,
+  Typography,
+  Button,
+  TextField,
+  Select,
+  MenuItem,
+  FormControl,
+} from "@mui/material";
+import Avatar from "../../assets/images/avatar.png";
+import GraphicEqIcon from "@mui/icons-material/GraphicEq";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import PlayCircleIcon from "@mui/icons-material/PlayCircle";
+import SpeedIcon from "@mui/icons-material/Speed";
+const NewFileComponentModal = ({ onClose }) => {
+  const open = true;
+  const [text, setText] = useState("");
+  const [language, setLanguage] = useState("en-US");
+  const [style, setStyle] = useState("default");
+  const [pause, setPause] = useState(0);
+  const maxLength = 2000;
 
-const NewFileComponentModal = ({ open, onClose }) => {
+  const handleChange = (event) => {
+    setText(event.target.value);
+  };
+  const handleLanguageChange = (event) => {
+    setLanguage(event.target.value);
+  };
+
+  const handleStyleChange = (event) => {
+    setStyle(event.target.value);
+  };
+
+  const handlePauseChange = (event) => {
+    setPause(event.target.value);
+  };
+
+  const charactersLeft = maxLength - text.length;
 
   return (
     <>
@@ -9,11 +45,10 @@ const NewFileComponentModal = ({ open, onClose }) => {
         <Box
           sx={{
             boxSizing: "border-box",
-            width: "100%",
-            height: "85%",
-            padding: "1rem",
-            paddingLeft: "0",
-            paddingTop: "0",
+            width: "100vw",
+            height: "100vh",
+            display:"flex"
+
           }}
         >
           <Box
@@ -21,9 +56,12 @@ const NewFileComponentModal = ({ open, onClose }) => {
               borderRadius: "15px",
               background: "rgba(255, 255, 255, 1)",
               boxShadow: "0px 4px 15px 0px rgba(0, 0, 0, 0.06)",
-              height: "100%",
-              width: "100%",
+              height: "85%",
+              width: "80%",
               overflowY: "auto",
+              margin:"auto",
+              maxWidth:"1000px",
+              maxHeight:"700px"
             }}
           >
             <Box
@@ -245,7 +283,7 @@ const NewFileComponentModal = ({ open, onClose }) => {
                     border: "1px solid #6D6D6D",
                     borderRadius: "8px",
                   }}
-                    // onClick={() => setText("")}
+                  // onClick={() => setText("")}
                   onClick={onClose}
                 >
                   Cancel
