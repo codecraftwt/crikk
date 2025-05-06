@@ -15,6 +15,7 @@ import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import SpeedIcon from "@mui/icons-material/Speed";
 import { useNavigate } from "react-router-dom";
 import VoicesModal from "../VoiceModal/VoiceModal";
+import SpeedModal from "../SpeedModal/SpeedModal";
 
 const NewFileComponent = () => {
   const [text, setText] = useState("");
@@ -24,19 +25,18 @@ const NewFileComponent = () => {
   const maxLength = 2000;
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const [openSpeed, setOpenSpeed] = useState(false);
   const buttonRef = useRef(null);
-  const [anchorElRect, setAnchorElRect] = useState(null);
+  const buttonRef1 = useRef(null);
 
-  const handleOpen = () => {
-    if (buttonRef.current) {
-      setAnchorElRect(buttonRef.current.getBoundingClientRect());
-    }
-    setOpen(true);
-  };
+  const handleOpen = () => setOpen(true);
+  const handleSpeedOpen = () => setOpenSpeed(true);
 
   const handleClose = () => setOpen(false);
+  const handleSpeedClose = () => setOpenSpeed(false);
 
   const rect = buttonRef.current?.getBoundingClientRect();
+  const rect1 = buttonRef1.current?.getBoundingClientRect();
 
   const handleChange = (event) => {
     setText(event.target.value);
@@ -226,12 +226,12 @@ const NewFileComponent = () => {
                 display={"flex"}
                 alignItems={"center"}
                 sx={{ cursor: "pointer" }}
+                onClick={handleOpen}
               >
                 <Box
                   component="img"
                   src={Avatar}
                   alt="image"
-                  onClick={handleOpen}
                   ref={buttonRef}
                   sx={{
                     height: "2.5rem",
@@ -255,15 +255,29 @@ const NewFileComponent = () => {
                 >
                   Free
                 </Box>
-                <Box color={"#7D7D7D"}>Voice</Box>
+                <Typography
+                  color="#7D7D7D"
+                  sx={{
+                    marginLeft: "0rem",
+                    fontSize: "0.9rem",
+                    marginLeft: "-1rem",
+                  }}
+                >
+                  Voice
+                </Typography>
               </Box>
               <Box
                 ml={5}
                 display={"flex"}
                 alignItems={"center"}
                 sx={{ cursor: "pointer" }}
+                onClick={handleSpeedOpen}
+
               >
-                <SpeedIcon sx={{ color: "#7D7D7D", fontSize: "2rem" }} />
+                <SpeedIcon
+                  ref={buttonRef1}
+                  sx={{ color: "#7D7D7D", fontSize: "2rem" }}
+                />
                 <Typography
                   color="#7D7D7D"
                   sx={{ marginLeft: "0.5rem", fontSize: "0.9rem" }}
@@ -316,6 +330,7 @@ const NewFileComponent = () => {
         </Box>
       </Box>
       <VoicesModal open={open} onClose={handleClose} anchorElPosition={rect} />
+      <SpeedModal open={openSpeed} onClose={handleSpeedClose} anchorElPosition={rect1} />
     </>
   );
 };

@@ -1,10 +1,15 @@
 import { useState } from "react";
-import { Modal, Box, Button, Fade, Typography } from "@mui/material";
+import { Modal, Box, Button, Fade, FormControl, Select, MenuItem } from "@mui/material";
 import NativeVoices from "../../shared/VoiceSampleFree.jsx";
 import GlobalVoices from "../../shared/VoiceSamplePro.jsx";
 
 export default function VoicesModal({ open, onClose, anchorElPosition }) {
   const [activeTab, setActiveTab] = useState("native");
+  const [language, setLanguage] = useState("default");
+
+const handleLanguageChange = (event) => {
+  setLanguage(event.target.value);
+};
   return (
     <Modal open={open} onClose={onClose}>
       <Box
@@ -83,17 +88,41 @@ export default function VoicesModal({ open, onClose, anchorElPosition }) {
             <Box
               sx={{
                 display: "flex",
-                flexWrap: "wrap",
+                flexDirection: "column",
                 gap: 2,
                 height: "350px",
                 overflow: "auto",
               }}
             >
-              {[...Array(8)].map((_, index) => (
-                <Box key={index} sx={{ width: "calc(50% - 8px)" }}>
-                  <NativeVoices />
-                </Box>
-              ))}
+              {/* Language Select Dropdown */}
+              <FormControl fullWidth sx={{ marginBottom: 1 }}>
+                <Select
+                  value={language}
+                  onChange={handleLanguageChange}
+                  sx={{
+                    borderRadius: "10px",
+                    fontSize: "0.8rem",
+                    height: "2.5rem",
+                    width: "100%",
+                    color:"#555555"
+                  }}
+                >
+                  <MenuItem value="default">Select Language</MenuItem>
+                  <MenuItem value="en-US">English (US)</MenuItem>
+                  <MenuItem value="en-GB">English (UK)</MenuItem>
+                  <MenuItem value="es-ES">Spanish</MenuItem>
+                  <MenuItem value="fr-FR">French</MenuItem>
+                </Select>
+              </FormControl>
+
+              {/* Display NativeVoices components */}
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+                {[...Array(8)].map((_, index) => (
+                  <Box key={index} sx={{ width: "calc(50% - 8px)" }}>
+                    <NativeVoices />
+                  </Box>
+                ))}
+              </Box>
             </Box>
           </Fade>
         )}
