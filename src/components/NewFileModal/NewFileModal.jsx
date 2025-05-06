@@ -48,7 +48,7 @@ const NewFileModal = ({ open, onClose }) => {
   };
 
   const handleStartTyping = () => {
-    navigate("/createfile");
+    navigate("/newfile");
   };
 
   return (

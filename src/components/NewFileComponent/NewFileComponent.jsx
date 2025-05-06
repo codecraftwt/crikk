@@ -6,10 +6,13 @@ import {
   Select,
   MenuItem,
   FormControl,
-  InputLabel,
   Button,
 } from "@mui/material";
+import Avatar from "../../assets/images/avatar.png";
+import GraphicEqIcon from "@mui/icons-material/GraphicEq";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import PlayCircleIcon from "@mui/icons-material/PlayCircle";
+import SpeedIcon from "@mui/icons-material/Speed";
 
 const NewFileComponent = () => {
   const [text, setText] = useState("");
@@ -110,7 +113,12 @@ const NewFileComponent = () => {
               <Select
                 value={language}
                 onChange={handleLanguageChange}
-                sx={{ borderRadius: "15px", fontSize:"0.9rem"}}
+                sx={{
+                  borderRadius: "10px",
+                  fontSize: "0.8rem",
+                  height: "2.5rem",
+                  width: "8rem",
+                }}
               >
                 <MenuItem value="en-US">English (US)</MenuItem>
                 <MenuItem value="en-GB">English (UK)</MenuItem>
@@ -126,7 +134,12 @@ const NewFileComponent = () => {
               <Select
                 value={style}
                 onChange={handleStyleChange}
-                sx={{ borderRadius: "15px", fontSize:"0.9rem"}}
+                sx={{
+                  borderRadius: "10px",
+                  fontSize: "0.8rem",
+                  height: "2.5rem",
+                  width: "8rem",
+                }}
               >
                 <MenuItem value="default">Select Style</MenuItem>
                 <MenuItem value="casual">Casual</MenuItem>
@@ -142,7 +155,12 @@ const NewFileComponent = () => {
               <Select
                 value={pause}
                 onChange={handlePauseChange}
-                sx={{ fontSize: "0.9rem" }}
+                sx={{
+                  borderRadius: "10px",
+                  fontSize: "0.8rem",
+                  height: "2.5rem",
+                  width: "8rem",
+                }}
               >
                 <MenuItem value={0}>Add Pause</MenuItem>
                 <MenuItem value={2}>2 Seconds</MenuItem>
@@ -155,17 +173,112 @@ const NewFileComponent = () => {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "flex-end",
+            justifyContent: "space-between",
             gap: 2,
             marginTop: 3,
+            padding: "0 2rem",
+            boxSizing: "border-box",
           }}
         >
-          <Button variant="outlined" onClick={() => setText("")}>
-            Reset
-          </Button>
-          <Button variant="contained" sx={{ background: "#8A5CFF" }}>
-            Submit
-          </Button>
+          <Box display={"flex"} alignItems={"center"}>
+            <Box
+              display={"flex"}
+              alignItems={"center"}
+              sx={{ cursor: "pointer" }}
+            >
+              <PlayCircleIcon sx={{ fontSize: "3rem", color: "#8A5CFF" }} />
+              <Typography sx={{ marginLeft: "1rem", fontSize: "0.9rem" }}>
+                Play Preview
+              </Typography>
+            </Box>
+            <Box
+              ml={5}
+              display={"flex"}
+              alignItems={"center"}
+              sx={{ cursor: "pointer" }}
+            >
+              <Box
+                component="img"
+                src={Avatar}
+                alt="image"
+                sx={{
+                  height: "2.5rem",
+                  background: "#2061D6",
+                  borderRadius: "50%",
+                }}
+              />
+              <Box
+                sx={{
+                  WebkitBackgroundClip: "text",
+                  color: "#FD7E14",
+                  fontSize: "1rem",
+                  background: "white",
+                  position: "relative",
+                  right: "1rem",
+                  top: "15px",
+                  borderTopLeftRadius: "10px",
+                  padding: "2px",
+                }}
+              >
+                Free
+              </Box>
+              <Box color={"#7D7D7D"}>Voice</Box>
+            </Box>
+            <Box
+              ml={5}
+              display={"flex"}
+              alignItems={"center"}
+              sx={{ cursor: "pointer" }}
+            >
+              <SpeedIcon sx={{ color: "#7D7D7D", fontSize: "2rem" }} />
+              <Typography
+                color="#7D7D7D"
+                sx={{ marginLeft: "0.5rem", fontSize: "0.9rem" }}
+              >
+                Speed
+              </Typography>
+            </Box>
+            <Box
+              ml={5}
+              display={"flex"}
+              alignItems={"center"}
+              sx={{ cursor: "pointer" }}
+            >
+              <GraphicEqIcon sx={{ color: "#7D7D7D", fontSize: "2rem" }} />
+              <Typography
+                color="#7D7D7D"
+                sx={{ marginLeft: "0.5rem", fontSize: "0.9rem" }}
+              >
+                Pitch
+              </Typography>
+            </Box>
+          </Box>
+
+          <Box>
+            <Button
+              variant="outlined"
+              sx={{
+                textTransform: "none",
+                marginRight: "1rem",
+                color: "#6D6D6D",
+                border: "1px solid #6D6D6D",
+                borderRadius: "8px",
+              }}
+              onClick={() => setText("")}
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="contained"
+              sx={{
+                background: "#8A5CFF",
+                textTransform: "none",
+                borderRadius: "8px",
+              }}
+            >
+              Create audio
+            </Button>
+          </Box>
         </Box>
       </Box>
     </Box>
