@@ -26,8 +26,8 @@ function App() {
         <Route path="/helpcenter" element={<Layout><HelpCenter /></Layout>}/>
         <Route path="/profile" element={<Layout><Profile /></Layout>}/>
         <Route path="/account" element={<Layout><Account /></Layout>}/>
-        {/* <Route path="/account" element={<Account />} /> */}
-        <Route path="/terms" element={<Terms />} />
+        <Route path="/terms" element={<Layout><Terms /></Layout>}/>
+        {/* <Route path="/terms" element={<Terms />} /> */}
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/password" element={<Password />} />
         <Route path="/newfile" element={<NewFile />} />
