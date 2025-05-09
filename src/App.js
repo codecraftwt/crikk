@@ -21,8 +21,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/dashboard" />} />
         <Route path="/dashboard" element={<Layout><DashboardContent /></Layout>}/>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/dashboarddata" element={<DashboardData />} />
+        <Route path="/dashboarddata" element={<Layout><DashboardData /></Layout>}/>
+        {/* <Route path="/dashboarddata" element={<DashboardData />} /> */}
         <Route path="/subscriptions" element={<Subscription />} />
         <Route path="/helpcenter" element={<HelpCenter />} />
         <Route path="/profile" element={<Profile />} />
