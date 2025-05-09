@@ -22,8 +22,7 @@ function App() {
         <Route path="/" element={<Navigate to="/dashboard" />} />
         <Route path="/dashboard" element={<Layout><DashboardContent /></Layout>}/>
         <Route path="/dashboarddata" element={<Layout><DashboardData /></Layout>}/>
-        {/* <Route path="/dashboarddata" element={<DashboardData />} /> */}
-        <Route path="/subscriptions" element={<Subscription />} />
+        <Route path="/subscriptions" element={<Layout><Subscription /></Layout>}/>
         <Route path="/helpcenter" element={<HelpCenter />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/account" element={<Account />} />
