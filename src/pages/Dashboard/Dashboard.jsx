@@ -60,6 +60,7 @@ const DashboardContent = () => {
           overflowY: "auto",
           padding: "2rem",
           color: "#2B2B2B",
+          marginLeft:{xs:"1rem", sm:"1rem", md:"0"}
         }}
       >
         <Box>

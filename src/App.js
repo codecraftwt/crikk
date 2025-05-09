@@ -30,7 +30,7 @@ function App() {
         <Route path="/privacy" element={<Layout><Privacy /></Layout>}/>
         <Route path="/password" element={<Layout><Password /></Layout>}/>
         <Route path="/newfile" element={<Layout><NewFile /></Layout>}/>
-        <Route path="/notfound" element={<NotFound />} />
+        <Route path="/notfound" element={<Layout><NotFound /></Layout>}/>
       </Routes>
     </div>
   );

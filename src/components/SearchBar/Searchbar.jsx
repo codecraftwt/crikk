@@ -184,6 +184,7 @@ const SearchBar = ({ onUpgradeClick }) => {
             alignItems: "center",
             justifyContent: "space-between",
             maxHeight: "200px",
+            marginLeft:{xs:"1rem", sm:"1rem", md:"0"}
           }}
         >
           {isSmallScreen && (
