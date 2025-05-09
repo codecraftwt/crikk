@@ -29,8 +29,7 @@ function App() {
         <Route path="/terms" element={<Layout><Terms /></Layout>}/>
         <Route path="/privacy" element={<Layout><Privacy /></Layout>}/>
         <Route path="/password" element={<Layout><Password /></Layout>}/>
-        {/* <Route path="/password" element={<Password />} /> */}
-        <Route path="/newfile" element={<NewFile />} />
+        <Route path="/newfile" element={<Layout><NewFile /></Layout>}/>
         <Route path="/notfound" element={<NotFound />} />
       </Routes>
     </div>
