@@ -12,12 +12,15 @@ import Password from "./pages/Password/Password.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import DashboardData from "./pages/DashboardData/DashboardData.jsx";
 import NewFile from "./pages/NewFile/NewFile.jsx";
+import DashboardContent from "./pages/Dashboard/Dashboard.jsx";
+import Layout from "./shared/Layout.jsx";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Navigate to="/dashboard" />} />
+        <Route path="/dashboard" element={<Layout><DashboardContent /></Layout>}/>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboarddata" element={<DashboardData />} />
         <Route path="/subscriptions" element={<Subscription />} />
