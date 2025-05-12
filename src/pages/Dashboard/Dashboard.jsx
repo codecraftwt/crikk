@@ -15,7 +15,7 @@ import ProjectFile from "../../shared/ProjectFile";
 import ProjectFileList from "../../shared/ProjectFileList";
 
 const DashboardContent = () => {
-  const [viewMode, setViewMode] = useState("grid"); // "grid" or "list"
+  const [viewMode, setViewMode] = useState("grid");
   const [sort, setSort] = useState("date");
   const navigate = useNavigate();
 
@@ -43,11 +43,11 @@ const DashboardContent = () => {
   return (
     <Box
       sx={{
-        height:"100%",
-        width:"100%",
+        height: "100%",
+        width: "100%",
         boxSizing: "border-box",
-        paddingRight:"1rem",
-        paddingBottom:"1rem"
+        paddingRight: "1rem",
+        paddingBottom: "1rem",
       }}
     >
       <Box
@@ -60,7 +60,7 @@ const DashboardContent = () => {
           overflowY: "auto",
           padding: "2rem",
           color: "#2B2B2B",
-          marginLeft:{xs:"1rem", sm:"1rem", md:"0"}
+          marginLeft: { xs: "1rem", sm: "1rem", md: "0" },
         }}
       >
         <Box>
@@ -71,21 +71,36 @@ const DashboardContent = () => {
               alignItems: "center",
             }}
           >
-            <Typography variant="h6" sx={{ fontWeight: "bold", color: "#3E3E3E" }}>
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: "bold",
+                color: "#3E3E3E",
+                fontSize: { xs: "0.9rem", sm: "1.5rem", md: "2rem" },
+              }}
+            >
               My Projects
             </Typography>
 
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-              <TextField
-                select
-                label="Sort by"
-                value={sort}
-                onChange={(e) => setSort(e.target.value)}
-                size="small"
-              >
-                <MenuItem value="date">Date Created</MenuItem>
-                <MenuItem value="name">Project Name</MenuItem>
-              </TextField>
+              <Box sx={{ display: {xs:"none",sm:"flex"}, alignItems:"center" }}>
+                <Typography sx={{fontSize:
+                {xs:"0.8rem", sm:"1rem", md:"1.2rem"}
+
+                }}>Sort By: </Typography>
+                <TextField
+                  select
+                  value={sort}
+                  onChange={(e) => setSort(e.target.value)}
+                  size="small"
+                >
+                  <MenuItem disabled value="">
+                    Sort By:
+                  </MenuItem>
+                  <MenuItem value="date">Date Created</MenuItem>
+                  <MenuItem value="name">Project Name</MenuItem>
+                </TextField>
+              </Box>
 
               <IconButton
                 onClick={() => setViewMode("grid")}
