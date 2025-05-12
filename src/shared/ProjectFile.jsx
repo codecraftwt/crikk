@@ -30,12 +30,12 @@ const ProjectFile = ({
     <Box
       sx={{
         height: {xs:"80px",sm:"100px"},
-        width: isFullWidth ? "100%" : { xs: "125px", sm: "200px", md:"220px" },
+        width: isFullWidth ? "100%" : { xs: "105px", sm: "200px", md:"220px" },
         background: "#fff",
         display: "flex",
         alignItems: "center",
         paddingLeft: "0.4rem",
-        margin:{xs:"0.5rem", sm:"1rem"},
+        margin:{xs:"0.2rem", sm:"1rem"},
         borderRadius: "10px",
         marginBottom: "1rem",
         cursor: "pointer",

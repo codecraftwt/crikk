@@ -36,22 +36,26 @@ const NotFound = () => {
             height: "350px",
             display: "flex",
             flexDirection: "column",
-            alignItems:"center"
+            alignItems: "center",
           }}
         >
-          <Box 
-          component="img"
-          src={NoObjectImg}
-          alt="No Object image"
-          sx={{
-            height:{xs:"100px", sm:"150px", md:"200px"},
-          }}
+          <Box
+            component="img"
+            src={NoObjectImg}
+            alt="No Object image"
+            sx={{
+              height: { xs: "100px", sm: "150px", md: "200px" },
+            }}
           />
           <Typography
             variant="h5"
-            sx={{ color: "#3E3E3E", textAlign: "center", marginBottom: "1rem", marginTop:"1rem",
-              fontSize:{xs:"1rem", sm:"1.5rem", md:"2rem"}
-             }}
+            sx={{
+              color: "#3E3E3E",
+              textAlign: "center",
+              marginBottom: "1rem",
+              marginTop: "1rem",
+              fontSize: { xs: "1rem", sm: "1.5rem", md: "2rem" },
+            }}
           >
             No Project Found
           </Typography>
@@ -60,7 +64,7 @@ const NotFound = () => {
             sx={{
               textAlign: "center",
               fontWeight: "300",
-              fontSize: {xs:"0.9rem", sm:"1rem", md:"1.2rem"},
+              fontSize: { xs: "0.9rem", sm: "1rem", md: "1.2rem" },
               lineHeight: "150%",
               textAlign: "center",
               color: "#9E9E9E",

@@ -25,11 +25,12 @@ const PrivacyComponent = () => {
   return (
     <Box
       sx={{
-        height:"100%",
-        width:"100%",
+        height: "100%",
+        width: "100%",
         boxSizing: "border-box",
-        paddingRight:"1rem",
-        paddingBottom:"1rem"
+        paddingRight: "1rem",
+        paddingBottom: "1rem",
+        paddingLeft: { xs: "1rem", sm: "1rem", md: "0" },
       }}
     >
       <Box
@@ -88,7 +89,7 @@ const PrivacyComponent = () => {
                 sx={{
                   marginLeft: "1rem",
                   [theme.breakpoints.down("sm")]: {
-                    fontSize:"0.8rem"
+                    fontSize: "0.8rem",
                   },
                 }}
               />

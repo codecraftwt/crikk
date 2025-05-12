@@ -49,11 +49,13 @@ const HelpCenter = () => {
   return (
     <Box
       sx={{
-        height:"100%",
-        width:"100%",
+        height: "100%",
+        width: "100%",
         boxSizing: "border-box",
-        paddingRight:"1rem",
-        paddingBottom:"1rem"
+        paddingRight: "1rem",
+        paddingBottom: "1rem",
+        paddingLeft: { xs: "1rem", sm: "1rem", md: "0" },
+
       }}
     >
       <Box
@@ -229,9 +231,16 @@ const HelpCenter = () => {
                   </IconButton>
                 </Box>
                 <Collapse in={open[index]}>
-                  <Typography sx={{ mt: 2,       [theme.breakpoints.down("sm")]: {
+                  <Typography
+                    sx={{
+                      mt: 2,
+                      [theme.breakpoints.down("sm")]: {
                         fontSize: "0.8rem",
-                      }, }}>{item.answer}</Typography>
+                      },
+                    }}
+                  >
+                    {item.answer}
+                  </Typography>
                 </Collapse>
               </Paper>
             ))}

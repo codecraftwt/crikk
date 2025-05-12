@@ -10,33 +10,34 @@ const AccountComponent = () => {
   const theme = useTheme();
   const [modalOpen, setModalOpen] = useState(false);
 
-  const toggleModal = () =>{
+  const toggleModal = () => {
     setModalOpen(true);
-  }
+  };
 
   return (
     <>
-    <Box
-      sx={{
-        height:"100%",
-        width:"100%",
-        boxSizing: "border-box",
-        paddingRight:"1rem",
-        paddingBottom:"1rem"
-      }}
-    >
       <Box
         sx={{
-          boxSizing: "border-box",
-          borderRadius: "15px",
-          background: "rgba(255, 255, 255, 1)",
-          boxShadow: "0px 4px 15px 0px rgba(0, 0, 0, 0.06)",
           height: "100%",
-          overflowY: "auto",
-          padding: "2rem",
-          color: "#2B2B2B",
+          width: "100%",
+          boxSizing: "border-box",
+          paddingRight: "1rem",
+          paddingBottom: "1rem",
+          paddingLeft: { xs: "1rem", sm: "1rem", md: "0" },
         }}
       >
+        <Box
+          sx={{
+            boxSizing: "border-box",
+            borderRadius: "15px",
+            background: "rgba(255, 255, 255, 1)",
+            boxShadow: "0px 4px 15px 0px rgba(0, 0, 0, 0.06)",
+            height: "100%",
+            overflowY: "auto",
+            padding: "2rem",
+            color: "#2B2B2B",
+          }}
+        >
           <Typography variant="h4" sx={{ fontWeight: "700" }}>
             Account Settings
           </Typography>
@@ -88,7 +89,7 @@ const AccountComponent = () => {
           <Typography
             variant="h5"
             sx={{ fontSize: "1.1rem", color: "#FF6F6F", cursor: "pointer" }}
-            onClick = {toggleModal}
+            onClick={toggleModal}
           >
             Delete Account
           </Typography>

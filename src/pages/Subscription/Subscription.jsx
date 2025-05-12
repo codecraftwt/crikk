@@ -62,7 +62,8 @@ const Subscription = () => {
         width:"100%",
         boxSizing: "border-box",
         paddingRight:"1rem",
-        paddingBottom:"1rem"
+        paddingBottom:"1rem",
+        paddingLeft: { xs: "1rem", sm: "1rem", md: "0" },
       }}
     >
       <Box
@@ -75,6 +76,7 @@ const Subscription = () => {
           overflowY: "auto",
           padding: "2rem",
           color: "#2B2B2B",
+          paddingLeft:{xs:"2rem", sm:"0"}
         }}
       >
         <Typography variant="h6" fontWeight="bold" textAlign="center" mb={4}>

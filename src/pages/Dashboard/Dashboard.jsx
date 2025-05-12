@@ -58,7 +58,7 @@ const DashboardContent = () => {
           boxShadow: "0px 4px 15px 0px rgba(0, 0, 0, 0.06)",
           height: "100%",
           overflowY: "auto",
-          padding: "2rem",
+          padding: {xs:"1rem",sm:"2rem"},
           color: "#2B2B2B",
           marginLeft: { xs: "1rem", sm: "1rem", md: "0" },
         }}
@@ -120,12 +120,12 @@ const DashboardContent = () => {
           {viewMode === "grid" ? (
             <Grid
               container
-              spacing={{ xs: 2, sm: 3 }}
+              spacing={{ xs: 0, sm: 3 }}
               justifyContent="center"
-              sx={{ px: 2 }}
+              sx={{ px: 2,}}
             >
               {dummyProjects.map((project, index) => (
-                <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={index}>
+                <Grid item xs={2} sm={6} md={4} lg={3} xl={2} key={index}>
                   <ProjectFile
                     projectName={project.name}
                     fileCount={project.fileCount}
