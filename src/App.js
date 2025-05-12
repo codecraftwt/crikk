@@ -18,20 +18,22 @@ import Layout from "./shared/Layout.jsx";
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Navigate to="/dashboard" />} />
-        <Route path="/dashboard" element={<Layout><DashboardContent /></Layout>}/>
-        <Route path="/dashboarddata" element={<Layout><DashboardData /></Layout>}/>
-        <Route path="/subscriptions" element={<Layout><Subscription /></Layout>}/>
-        <Route path="/helpcenter" element={<Layout><HelpCenter /></Layout>}/>
-        <Route path="/profile" element={<Layout><Profile /></Layout>}/>
-        <Route path="/account" element={<Layout><Account /></Layout>}/>
-        <Route path="/terms" element={<Layout><Terms /></Layout>}/>
-        <Route path="/privacy" element={<Layout><Privacy /></Layout>}/>
-        <Route path="/password" element={<Layout><Password /></Layout>}/>
-        <Route path="/newfile" element={<Layout><NewFile /></Layout>}/>
-        <Route path="/notfound" element={<Layout><NotFound /></Layout>}/>
-      </Routes>
+     <Layout>
+        <Routes>
+          <Route path="/" element={<Navigate to="/dashboard" />} />
+          <Route path="/dashboard" element={<DashboardContent />} />
+          <Route path="/dashboarddata" element={<DashboardData />} />
+          <Route path="/subscriptions" element={<Subscription />} />
+          <Route path="/helpcenter" element={<HelpCenter />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/password" element={<Password />} />
+          <Route path="/newfile" element={<NewFile />} />
+          <Route path="/notfound" element={<NotFound />} />
+        </Routes>
+      </Layout>
     </div>
   );
 }
